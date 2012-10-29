@@ -5,19 +5,47 @@ if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])){
 	exit();
 }
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-echo($_GET['certificateID']."--".$_GET['certificateType']);
-if(trim($_GET['certificateID'])>0){
+if(trim($_GET['certificateID'])>-1){
 	$qid=trim($_GET['certificateID']);
 }
 $imgtype=trim($_GET['certificateType']);
-if(!empty($qid)){
-	$condition=array('id'=>$qid);
-}else{
-	$condition='';
-}
+
 $teams = DB::LimitQuery('team', array(
-	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
-print_r($teams);
+$quan=array('certificates'=>array(),'hasmore'=1);
+$a=1;
+foreach($teams as $key=>$value){
+	if(!empty($qid)&&$qid==$value['id']){
+		$quan['certificates'][$a]['certificateID']=$value['id'];
+		if($imgtype==2){
+			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+		}else{
+			$quan['certificates'][$a]['imgURL']=$value['image'];
+			$quan['certificates'][$a]['imgURL1']=$value['image1'];
+			$quan['certificates'][$a]['imgURL2']=$value['image2'];
+		}
+		
+		$quan['certificates'][$a]['title']=$value['title'];
+		$quan['certificates'][$a]['type']=$value['group_id'];
+		$quan['certificates'][$a]['likeCnt']=$value['now_number'];
+		$quan['certificates'][$a]['content']=$value['summary'];
+	}else{
+		$quan['certificates'][$a]['certificateID']=$value['id'];
+		if($imgtype==2){
+			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+		}else{
+			$quan['certificates'][$a]['imgURL']=$value['image'];
+			$quan['certificates'][$a]['imgURL1']=$value['image1'];
+			$quan['certificates'][$a]['imgURL2']=$value['image2'];
+		}
+		
+		$quan['certificates'][$a]['title']=$value['title'];
+		$quan['certificates'][$a]['type']=$value['group_id'];
+		$quan['certificates'][$a]['likeCnt']=$value['now_number'];
+		$quan['certificates'][$a]['content']=$value['summary'];
+		$a++;
+	}
+}
+echo(json_encode($quan));
 ?>
