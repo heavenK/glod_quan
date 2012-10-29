@@ -4,11 +4,16 @@ $group = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'group'),
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
+if(!$group){
+	$sort['code']=4;
+	echo(json_encode($sort));
+	exit();
+}
 $partner = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'partner'),
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
-$sort=array('zhonglei'=>array(),'shangquan'=>array());
+$sort=array('code'=>2,'zhonglei'=>array(),'shangquan'=>array());
 $a=1;
 $b=1;
 foreach($group as $key=>$value){
