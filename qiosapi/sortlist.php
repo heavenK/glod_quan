@@ -1,10 +1,10 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-$teams = DB::LimitQuery('team', array(
+$group = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'group'),
-	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
+	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
-$categories = DB::LimitQuery('category', array(
+$partner = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'partner'),
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
