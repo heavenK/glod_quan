@@ -5,7 +5,7 @@ if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])){
 	exit();
 }
 echo($_GET['certificateID']."--".$_GET['certificateType']);
-/*if(trim($_GET['certificateID'])>0){
+if(trim($_GET['certificateID'])>0){
 	$qid=trim($_GET['certificateID']);
 }
 $imgtype=trim($_GET['certificateType']);
@@ -14,7 +14,7 @@ if(!empty($qid)){
 }else{
 	$condition='';
 }
-$teams = DB::LimitQuery('team', array(
+/*$teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
