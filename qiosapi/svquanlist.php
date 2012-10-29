@@ -4,6 +4,7 @@ if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])){
 	echo(json_encode($quan));
 	exit();
 }
+require_once(dirname(dirname(__FILE__)) . '/app.php');
 echo($_GET['certificateID']."--".$_GET['certificateType']);
 if(trim($_GET['certificateID'])>0){
 	$qid=trim($_GET['certificateID']);
@@ -14,9 +15,9 @@ if(!empty($qid)){
 }else{
 	$condition='';
 }
-/*$teams = DB::LimitQuery('team', array(
+$teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
-print_r($teams);*/
+print_r($teams);
 ?>
