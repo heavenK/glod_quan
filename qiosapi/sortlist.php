@@ -8,7 +8,7 @@ $partner = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'partner'),
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
-print_r($categories);
+print_r($group);
 echo("<br>");
-print_r($teams);
+print_r($partner);
 ?>
