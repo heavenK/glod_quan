@@ -19,7 +19,7 @@ foreach($teams as $key=>$value){
 	if(!empty($qid)&&$qid==$value['id']){
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
-			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+		//	$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
 		}else{
 			$quan['certificates'][$a]['imgURL']=$value['image'];
 			$quan['certificates'][$a]['imgURL1']=$value['image1'];
@@ -33,7 +33,7 @@ foreach($teams as $key=>$value){
 	}else{
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
-			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+		//	$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
 		}else{
 			$quan['certificates'][$a]['imgURL']=$value['image'];
 			$quan['certificates'][$a]['imgURL1']=$value['image1'];
