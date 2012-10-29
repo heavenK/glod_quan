@@ -5,10 +5,10 @@ $teams = DB::LimitQuery('team', array(
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
 $categories = DB::LimitQuery('category', array(
-	'condition' => array('zone'=>'partner'),
+
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
 print_r($categories);
-echo("/r/n");
+echo("<br>");
 print_r($teams);
 ?>
