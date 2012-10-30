@@ -14,8 +14,7 @@ $partner = DB::LimitQuery('category', array(
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
 ));
 $sort=array('code'=>2,'zhonglei'=>array(),'shangquan'=>array());
-$a=1;
-$b=1;
+
 foreach($group as $key=>$value){
 	$str='';
 	$str=array();
@@ -23,15 +22,12 @@ foreach($group as $key=>$value){
 	$str['zhongleiName']=$value['name'];
 	$str['imgURL']='';
 	array_push($sort['zhonglei'],$str);
-/*	$sort['zhonglei'][$a]['zhongleiID']=$value['id'];
-	$sort['zhonglei'][$a]['zhongleiName']=$value['name'];
-	$sort['zhonglei'][$a]['imgURL']='';*/
-	$a++;
 }
 foreach($partner as $key=>$value){
-	$sort['shangquan'][$b]['shangquanID']=$value['id'];
-	$sort['shangquan'][$b]['shangquanName']=$value['name'];
-	$b++;
+	$pstr="";
+	$pstr['shangquanID']=$value['id'];
+	$pstr['shangquanName']=$value['name'];
+	array_push($sort['shangquan'],$pstr)
 }
 echo(json_encode($sort));
 ?>
