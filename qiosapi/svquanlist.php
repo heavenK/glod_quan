@@ -15,7 +15,7 @@ $teams = DB::LimitQuery('team', array(
 ));
 $quan=array('certificates'=>array(),'hasmore'=1);
 $a=1;
-foreach($teams as $key=>$value){
+/*foreach($teams as $key=>$value){
 	if(!empty($qid)&&$qid==$value['id']){
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
@@ -46,6 +46,6 @@ foreach($teams as $key=>$value){
 		$quan['certificates'][$a]['content']=$value['summary'];
 		$a++;
 	}
-}
+}*/
 echo(json_encode($quan));
 ?>
