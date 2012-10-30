@@ -17,9 +17,15 @@ $sort=array('code'=>2,'zhonglei'=>array(),'shangquan'=>array());
 $a=1;
 $b=1;
 foreach($group as $key=>$value){
-	$sort['zhonglei'][$a]['zhongleiID']=$value['id'];
+	$str='';
+	$str=array();
+	$str['zhongleiID']=$value['id'];
+	$str['zhongleiName']=$value['name'];
+	$str['imgURL']='';
+	array_push($sort['zhonglei'],$str);
+/*	$sort['zhonglei'][$a]['zhongleiID']=$value['id'];
 	$sort['zhonglei'][$a]['zhongleiName']=$value['name'];
-	$sort['zhonglei'][$a]['imgURL']='';
+	$sort['zhonglei'][$a]['imgURL']='';*/
 	$a++;
 }
 foreach($partner as $key=>$value){
