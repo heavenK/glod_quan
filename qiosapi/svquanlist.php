@@ -13,6 +13,8 @@ $imgtype=trim($_GET['certificateType']);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
+	'size' => 1,
+//	'offset' => $offset,
 ));
 $quan=array('certificates'=>array(),'hasmore'=>1);
 $a=1;
