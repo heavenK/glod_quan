@@ -14,13 +14,13 @@ $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
-/*$quan=array('certificates'=>array(),'hasmore'=1);
+$quan=array('certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
 	if(!empty($qid)&&$qid==$value['id']){
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
-		//	$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
 		}else{
 			$quan['certificates'][$a]['imgURL']=$value['image'];
 			$quan['certificates'][$a]['imgURL1']=$value['image1'];
@@ -34,7 +34,7 @@ foreach($teams as $key=>$value){
 	}else{
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
-		//	$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
+			$quan['certificates'][$a]['imgURL']=team_image($value['image'], true);
 		}else{
 			$quan['certificates'][$a]['imgURL']=$value['image'];
 			$quan['certificates'][$a]['imgURL1']=$value['image1'];
@@ -47,6 +47,6 @@ foreach($teams as $key=>$value){
 		$quan['certificates'][$a]['content']=$value['summary'];
 		$a++;
 	}
-}*/
-//echo(json_encode($quan));
+}
+echo(json_encode($quan));
 ?>
