@@ -14,9 +14,9 @@ $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 ));
-$quan=array('certificates'=>array(),'hasmore'=1);
+/*$quan=array('certificates'=>array(),'hasmore'=1);
 $a=1;
-/*foreach($teams as $key=>$value){
+foreach($teams as $key=>$value){
 	if(!empty($qid)&&$qid==$value['id']){
 		$quan['certificates'][$a]['certificateID']=$value['id'];
 		if($imgtype==2){
