@@ -27,7 +27,7 @@ foreach($partner as $key=>$value){
 	$pstr="";
 	$pstr['shangquanID']=$value['id'];
 	$pstr['shangquanName']=$value['name'];
-	array_push($sort['shangquan'],$pstr)
+	array_push($sort['shangquan'],$pstr);
 }
 echo(json_encode($sort));
 ?>
