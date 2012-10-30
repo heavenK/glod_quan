@@ -16,7 +16,6 @@ $partner = DB::LimitQuery('category', array(
 $sort=array('code'=>2,'zhonglei'=>array(),'shangquan'=>array());
 
 foreach($group as $key=>$value){
-	$str='';
 	$str=array();
 	$str['zhongleiID']=$value['id'];
 	$str['zhongleiName']=$value['name'];
@@ -24,7 +23,7 @@ foreach($group as $key=>$value){
 	array_push($sort['zhonglei'],$str);
 }
 foreach($partner as $key=>$value){
-	$pstr="";
+	$pstr=array();
 	$pstr['shangquanID']=$value['id'];
 	$pstr['shangquanName']=$value['name'];
 	array_push($sort['shangquan'],$pstr);
