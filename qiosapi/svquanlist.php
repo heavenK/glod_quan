@@ -47,5 +47,5 @@ $a=1;
 		$a++;
 	}
 }*/
-echo(json_encode($quan));
+//echo(json_encode($quan));
 ?>
