@@ -9,14 +9,20 @@ if(trim($_GET['certificateID'])>-1){
 	$qid=trim($_GET['certificateID']);
 }
 $imgtype=trim($_GET['certificateType']);
-
+if($qid>0){
+	$condition=array('`id`>'.$qid.'');
+}else{
+	$condition='';
+}
+$limit=1;
+$count = Table::Count('team', $condition);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
-	'size' => 1,
+	'size' => $limit,
 //	'offset' => $offset,
 ));
-$quan=array('certificates'=>array(),'hasmore'=>1);
+$quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
 	if(!empty($qid)&&$qid==$value['id']){
@@ -49,6 +55,11 @@ foreach($teams as $key=>$value){
 		$quan['certificates'][$a]['content']=$value['summary'];
 		$a++;
 	}
+}
+if($count>$limit){
+	$quan['hasmore']=1;
+}else{
+	$quan['hasmore']=0;
 }
 echo(json_encode($quan));
 ?>
