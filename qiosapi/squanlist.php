@@ -13,9 +13,9 @@ if($qid>0){
 	$condition=array('`id`>='.$qid.'');
 }
 if($sort==1){
-	$condition['group_id']=$sortid);
+	$condition['group_id']=$sortid;
 }else if($sort==2){
-	$condition['partner_id']=$sortid);
+	$condition['partner_id']=$sortid;
 }
 $limit=1;
 $count = Table::Count('team', $condition);
