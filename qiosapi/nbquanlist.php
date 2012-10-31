@@ -5,18 +5,27 @@
 	exit();
 }*/
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-$longlat=trim($_GET['lon']).','.trim($_GET['lat']);
-$teams = DB::LimitQuery('partner', array(
+$lon=trim($_GET['lon']);
+$lat=trim($_GET['lat']);
+$partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
 ));
-foreach($teams as $key=>$value){
+foreach($partners as $key=>$value){
+	$str=array();
 	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-	echo($longi."--".$lati."<br>");
+	if(($longi>($lon-10)&&$longi<($lon+10))&&($lati>($lat-10)&&$lati<($lat+10))){
+		$teams = DB::LimitQuery('team', array(
+			'condition' => $condition,
+			'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
+			'size' => $limit,
+		//	'offset' => $offset,
+		));
+	}
 }
 
 
-$teamss = DB::LimitQuery('team', array(
+$teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 	'size' => $limit,
