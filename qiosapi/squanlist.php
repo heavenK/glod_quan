@@ -17,7 +17,7 @@ if($sort==1){
 }else if($sort==2){
 	$condition['partner_id']=$sortid;
 }
-$limit=1;
+$limit=2;
 $count = Table::Count('team', $condition);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
