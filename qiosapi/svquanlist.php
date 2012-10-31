@@ -16,6 +16,7 @@ if($qid>0){
 }
 $limit=1;
 $count = Table::Count('team', $condition);
+echo($count);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
