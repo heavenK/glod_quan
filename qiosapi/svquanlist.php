@@ -23,6 +23,7 @@ $teams = DB::LimitQuery('team', array(
 	'size' => $limit,
 //	'offset' => $offset,
 ));
+print_r($teams);
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
