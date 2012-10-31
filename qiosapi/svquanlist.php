@@ -14,16 +14,14 @@ if($qid>0){
 }else{
 	$condition='';
 }
-$limit=1;
+$limit=2;
 $count = Table::Count('team', $condition);
-echo($count);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 	'size' => $limit,
 //	'offset' => $offset,
 ));
-print_r($teams);
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
