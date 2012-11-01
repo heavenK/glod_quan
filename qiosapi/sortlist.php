@@ -12,7 +12,6 @@ if(!$group){
 $partner = DB::LimitQuery('category', array(
 	'condition' => array('zone'=>'partner'),
 	'order' => 'ORDER BY display ASC, sort_order DESC, id DESC',
-	'size'=>6,
 ));
 $sort=array('code'=>2,'zhonglei'=>array(),'shangquan'=>array());
 
