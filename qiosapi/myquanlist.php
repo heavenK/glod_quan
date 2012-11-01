@@ -18,7 +18,7 @@ $condition = array(
 	"expire_time >= {$daytime}",
 );
 if($qid>0){
-	$condition[]='`team_id` >='.$qid.'';
+	$condition[]='`team_id` <='.$qid.'';
 }
 
 $coupons = DB::LimitQuery('coupon', array(

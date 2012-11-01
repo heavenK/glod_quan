@@ -10,7 +10,7 @@ $imgtype=trim($_GET['certificateType']);
 $sort=trim($_GET['type']);
 $sortid=trim($_GET['typeNum']);
 if($qid>0){
-	$condition=array('`id`>='.$qid.'');
+	$condition=array('`id`<='.$qid.'');
 }
 if($sort==1){
 	$condition['group_id']=$sortid;

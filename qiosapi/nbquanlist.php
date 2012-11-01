@@ -20,16 +20,19 @@ foreach($partners as $key=>$value){
 		unset($partners[$key]);
 	}
 } 
-$partner_ids = Utility::GetColumn($partners, 'partner_id');
-$teams = Table::Fetch('team', $partner_ids);
+$partner_ids = Utility::GetColumn($partners, 'id');
+//$teams = Table::Fetch('team', $partner_ids);
+$partner_id=implode(',',$partner_ids);
 
+$condition=array('partner_id in ('.$partner_id.')');
+$limit=6;
 
-/*$teams = DB::LimitQuery('team', array(
+$teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
 	'size' => $limit,
 //	'offset' => $offset,
-));*/
+));
 
 print_r($partners);
 echo("<br>");

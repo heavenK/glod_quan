@@ -10,7 +10,7 @@ if(trim($_GET['certificateID'])>-1){
 }
 $imgtype=trim($_GET['certificateType']);
 if($qid>0){
-	$condition=array('`id`>='.$qid.'');
+	$condition=array('`id`<='.$qid.'');
 }else{
 	$condition='';
 }
