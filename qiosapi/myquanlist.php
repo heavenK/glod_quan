@@ -11,12 +11,13 @@ if(trim($_GET['certificateID'])>-1){
 $imgtype=trim($_GET['certificateType']);
 $type=trim($_GET['type']);
 $uid=trim($_GET['uid']);
-
+$daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'user_id' => $uid,
-//	'consume' => 'N',
+	'consume' => 'N',
 //	"expire_time >= {$daytime}",
 );
+
 $coupons = DB::LimitQuery('coupon', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY team_id DESC, create_time DESC',
