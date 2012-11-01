@@ -18,7 +18,7 @@ $condition = array(
 //	"expire_time >= {$daytime}",
 );
 $coupons = DB::LimitQuery('coupon', array(
-//	'condition' => $condition,
+	'condition' => $condition,
 	'order' => 'ORDER BY team_id DESC, create_time DESC',
 //	'size' => $pagesize,
 //	'offset' => $offset,
