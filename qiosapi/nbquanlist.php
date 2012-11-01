@@ -34,6 +34,6 @@ function psel($arr){
 	
 }
 print_r($partners);
-echo("<br>");
-print_r($teams); 
+/*echo("<br>");
+print_r($teams); */
 ?>
