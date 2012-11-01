@@ -17,6 +17,9 @@ $condition = array(
 	'consume' => 'N',
 //	"expire_time >= {$daytime}",
 );
+if($qid>0){
+	$condition[]='`team_id` >='.$qid.'';
+}
 
 $coupons = DB::LimitQuery('coupon', array(
 	'condition' => $condition,
@@ -24,5 +27,11 @@ $coupons = DB::LimitQuery('coupon', array(
 //	'size' => $pagesize,
 //	'offset' => $offset,
 ));
+
+$team_ids = Utility::GetColumn($coupons, 'team_id');
+$teams = Table::Fetch('team', $team_ids);
+
 print_r($coupons);
+echo("<br>");
+print_r($teams);
 ?>
