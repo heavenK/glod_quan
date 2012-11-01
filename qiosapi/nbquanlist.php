@@ -20,7 +20,7 @@ foreach($partners as $key=>$value){
 		unset($partners[$key]);
 	}
 } 
-$partner_ids = Utility::GetColumn($partners, 'id');
+$partner_ids = Utility::GetColumn($partners, 'partner_id');
 $teams = Table::Fetch('team', $partner_ids);
 
 
