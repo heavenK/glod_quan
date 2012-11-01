@@ -11,15 +11,17 @@ $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
 ));
-foreach($partners as $key=>$value){
-	$str=array();
-	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
+$pstr=array();
+foreach($partners as $k=>$val){
+	list($longi,$lati) = preg_split('/[,\s]+/',$val['longlat'],-1,PREG_SPLIT_NO_EMPTY);
 	if(($longi>=($lon-0.01)&&$longi<($lon+0.05))&&($lati>=($lat-0.01)&&$lati<($lat+0.05))){
-		
+		$pstr[$val['id']]['lon']=$longi;
+		$pstr[$val['id']]['lat']=$lati;
+		$pstr[$val['id']]['addr']=$val['address'];
 	}else{
-		unset($partners[$key]);
+		unset($partners[$k]);
 	}
-} 
+}
 $partner_ids = Utility::GetColumn($partners, 'id');
 //$teams = Table::Fetch('team', $partner_ids);
 $partner_id=implode(',',$partner_ids);
@@ -34,9 +36,49 @@ $teams = DB::LimitQuery('team', array(
 //	'offset' => $offset,
 ));
 
-print_r($partners);
-echo("<br>");
-print_r($partner_ids);
-echo("<br>");
-print_r($teams); 
+$quan=array('code'=>2,'certificates'=>array());
+
+foreach($teams as $key=>$value){
+	$str=array();
+	$str['certificateID']=$value['id'];
+	if($imgtype==2){
+		$str['imgURL']=team_image($value['image'], true);
+	}else{
+		$str['imgURL']=$value['image'];
+		$str['imgURL1']=$value['image1'];
+		$str['imgURL2']=$value['image2'];
+	}
+	$str['title']=$value['title'];
+	$str['type']=$value['group_id'];
+	$str['likeCnt']=$value['now_number'];
+	$str['address']=$pstr[$value['partner_id']]['addr'];
+	$str['distance']=GetDistance($pstr[$value['partner_id']]['lat'],$pstr[$value['partner_id']]['lon'],$lat,$lon);
+	array_push($quan['certificates'],$str);
+}
+if($count>$limit){
+	$quan['hasmore']=1;
+}else{
+	$quan['hasmore']=0;
+}
+
+echo(json_encode($quan));
+
+function rad($d)  
+{  
+    return $d * 3.1415926535898 / 180.0;  
+}  
+function GetDistance($lat1, $lng1, $lat2, $lng2)  
+{  
+    $EARTH_RADIUS = 6378.137;  
+    $radLat1 = rad($lat1);  
+    //echo $radLat1;  
+   $radLat2 = rad($lat2);  
+   $a = $radLat1 - $radLat2;  
+   $b = rad($lng1) - rad($lng2);  
+   $s = 2 * asin(sqrt(pow(sin($a/2),2) +  
+    cos($radLat1)*cos($radLat2)*pow(sin($b/2),2)));  
+   $s = $s *$EARTH_RADIUS;  
+   $s = round($s * 10000) / 10000;  
+   return $s;  
+}  
 ?>
