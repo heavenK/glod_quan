@@ -14,11 +14,11 @@ $partners = DB::LimitQuery('partner', array(
 foreach($partners as $key=>$value){
 	$str=array();
 	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-	if(($longi>($lon-0.01)&&$longi<($lon+0.01))&&($lati>($lat-0.01)&&$lati<($lat+0.01))){
+/*	if(($longi>($lon-0.01)&&$longi<($lon+0.01))&&($lati>($lat-0.01)&&$lati<($lat+0.01))){
 		
 	}else{
 		unset($partners[$key]);
-	}
+	}*/
 } 
 
 
