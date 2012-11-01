@@ -11,18 +11,16 @@ $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
 ));
-foreach($partners as $key=>$value){
-	$str=array();
-	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-	if(($longi>($lon-10)&&$longi<($lon+10))&&($lati>($lat-10)&&$lati<($lat+10))){
-		$teams = DB::LimitQuery('team', array(
-			'condition' => $condition,
-			'order' => 'ORDER BY begin_time DESC, sort_order DESC, id DESC',
-			'size' => $limit,
-		//	'offset' => $offset,
-		));
-	}
-}
+array_filter($partners,function (){
+   foreach($partners as $key=>$value){
+		$str=array();
+		list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
+		if(($longi>($lon-10)&&$longi<($lon+10))&&($lati>($lat-10)&&$lati<($lat+10))){
+			return true;
+		}
+	} 
+});
+
 
 
 $teams = DB::LimitQuery('team', array(
