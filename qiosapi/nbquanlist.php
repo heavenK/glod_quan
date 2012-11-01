@@ -15,6 +15,7 @@ foreach($partners as $key=>$value){
 	$str=array();
 	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
 	echo($lon."---".($lon-0.01)."--".($lon+0.01)."<br>");
+	echo($lat."---".($lat-0.01)."--".($lat+0.01)."<br>");
 	if(($longi>=($lon-0.01)&&$longi<($lon+0.01))&&($lati>=($lat-0.01)&&$lati<($lat+0.01))){
 		
 	}else{
