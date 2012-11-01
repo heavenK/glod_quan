@@ -31,7 +31,7 @@ $teams = DB::LimitQuery('team', array(
 	'size' => $limit,
 //	'offset' => $offset,
 ));
-print_r($teams);
+print_r($partners);
 echo("<br>");
-print_r($teamss); 
+print_r($teams); 
 ?>
