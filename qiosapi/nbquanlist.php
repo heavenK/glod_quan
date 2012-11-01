@@ -11,16 +11,7 @@ $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
 ));
-array_filter($partners,function (){
-   foreach($partners as $key=>$value){
-		$str=array();
-		list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-		if(($longi>($lon-10)&&$longi<($lon+10))&&($lati>($lat-10)&&$lati<($lat+10))){
-			return true;
-		}
-	} 
-	return false;
-});
+array_filter($partners,"psel");
 
 
 
@@ -30,6 +21,18 @@ $teams = DB::LimitQuery('team', array(
 	'size' => $limit,
 //	'offset' => $offset,
 ));
+
+function psel($arr){
+   foreach($arr as $key=>$value){
+		$str=array();
+		list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
+		if(($longi>($lon-10)&&$longi<($lon+10))&&($lati>($lat-10)&&$lati<($lat+10))){
+			return true;
+		}
+		return false; 
+	} 
+	
+}
 print_r($partners);
 echo("<br>");
 print_r($teams); 
