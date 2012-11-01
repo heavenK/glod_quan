@@ -9,17 +9,19 @@ if(trim($_GET['certificateID'])>-1){
 	$qid=trim($_GET['certificateID']);
 }
 $imgtype=trim($_GET['certificateType']);
+$type=trim($_GET['type']);
+$uid=trim($_GET['uid']);
 
 $condition = array(
-	'user_id' => $login_user_id,
-	'consume' => 'N',
+	'user_id' => $uid,
+//	'consume' => 'N',
 //	"expire_time >= {$daytime}",
 );
 $coupons = DB::LimitQuery('coupon', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY team_id DESC, create_time DESC',
-	'size' => $pagesize,
-	'offset' => $offset,
+//	'size' => $pagesize,
+//	'offset' => $offset,
 ));
 print_r($coupons);
 ?>
