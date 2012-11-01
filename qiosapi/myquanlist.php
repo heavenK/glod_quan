@@ -31,7 +31,30 @@ $coupons = DB::LimitQuery('coupon', array(
 $team_ids = Utility::GetColumn($coupons, 'team_id');
 $teams = Table::Fetch('team', $team_ids);
 
-print_r($coupons);
-echo("<br>");
-print_r($teams);
+$quan=array('code'=>2,'certificates'=>array());
+
+foreach($teams as $key=>$value){
+	$str=array();
+	$str['certificateID']=$value['id'];
+	if($imgtype==2){
+		$str['imgURL']=team_image($value['image'], true);
+	}else{
+		$str['imgURL']=$value['image'];
+		$str['imgURL1']=$value['image1'];
+		$str['imgURL2']=$value['image2'];
+	}
+	$str['title']=$value['title'];
+	if($sort==1){
+		$str['type']=$value['group_id'];
+	}else if($sort==2){
+		$str['type']=$value['partner_id'];
+	}
+	
+	$str['likeCnt']=$value['now_number'];
+	$str['content']=$value['summary'];
+	array_push($quan['certificates'],$str);
+}
+
+echo(json_encode($quan));
+
 ?>
