@@ -19,7 +19,7 @@ if($sort==1){
 }
 $city_id = abs(intval($city['id']));
 $condition[] = "((city_ids like '%@{$city_id}@%' or city_ids like '%@0@%') or city_id in(0,{$city_id}))";
-$limit=2;
+$limit=6;
 $count = Table::Count('team', $condition);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
