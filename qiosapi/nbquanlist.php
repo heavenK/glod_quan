@@ -33,5 +33,7 @@ $teams = Table::Fetch('team', $partner_ids);
 
 print_r($partners);
 echo("<br>");
+print_r($partner_ids);
+echo("<br>");
 print_r($teams); 
 ?>
