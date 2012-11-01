@@ -11,7 +11,7 @@ $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
 ));
-array_filter($partners,function (){
+/*array_filter($partners,function (){
    foreach($partners as $key=>$value){
 		$str=array();
 		list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
@@ -19,7 +19,7 @@ array_filter($partners,function (){
 			return true;
 		}
 	} 
-});
+});*/
 
 
 
