@@ -15,7 +15,7 @@ $daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'user_id' => $uid,
 //	'consume' => 'N',
-//	"expire_time >= {$daytime}",
+	"expire_time >= {$daytime}",
 );
 if($qid>0){
 	$condition[]='`team_id` >='.$qid.'';
