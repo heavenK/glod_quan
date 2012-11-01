@@ -14,7 +14,7 @@ $uid=trim($_GET['uid']);
 $daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'user_id' => $uid,
-	'consume' => 'N',
+//	'consume' => 'N',
 //	"expire_time >= {$daytime}",
 );
 if($qid>0){
