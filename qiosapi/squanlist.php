@@ -9,7 +9,7 @@ $qid=trim($_GET['certificateID']);
 $imgtype=trim($_GET['certificateType']);
 $sort=trim($_GET['type']);
 $sortid=trim($_GET['typeNum']);
-echo($sortid);
+
 if($qid>0){
 	$condition=array('`id`<='.$qid.'');
 }
@@ -24,7 +24,7 @@ if($sort==1){
 	$partner_id=implode(',',$partner_ids);
 	$condition[]='partner_id in ('.$partner_id.')';
 }
-print_r($partners);
+
 $city_id = abs(intval($city['id']));
 $condition[] = "((city_ids like '%@{$city_id}@%' or city_ids like '%@0@%') or city_id in(0,{$city_id}))";
 $limit=6;
@@ -35,7 +35,7 @@ $teams = DB::LimitQuery('team', array(
 	'size' => $limit,
 //	'offset' => $offset,
 ));
-print_r($teams);
+
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
@@ -55,7 +55,7 @@ foreach($teams as $key=>$value){
 		$type = Table::Fetch('category', $sortid);
 		$str['typeName']=$type[$value['group_id']]['name'];
 	}else if($sort==2){
-		$str['type']=$sortid;
+		$str['type']=$partners[$value['partner_id']]['group_id'];
 	}
 	
 	$str['likeCnt']=$value['now_number'];
