@@ -9,6 +9,7 @@ $qid=trim($_GET['certificateID']);
 $imgtype=trim($_GET['certificateType']);
 $sort=trim($_GET['type']);
 $sortid=trim($_GET['typeNum']);
+echo($sortid);
 if($qid>0){
 	$condition=array('`id`<='.$qid.'');
 }
