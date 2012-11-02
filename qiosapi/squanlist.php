@@ -16,9 +16,10 @@ if($qid>0){
 if($sort==1){
 	$condition['group_id']=$sortid;
 }else if($sort==2){
-	$partnerid=array(0=>$sortid);
-	print_r($partnerid);
-	$partners = Table::Fetch('partner', $partnerid);
+	$partners = DB::LimitQuery('partner', array(
+		'condition' => array('groupid'=>$sortid),
+		'order' => 'ORDER BY head DESC, id DESC',
+	));
 	$partner_ids = Utility::GetColumn($partners, 'id');
 	$partner_id=implode(',',$partner_ids);
 	$condition[]='partner_id in ('.$partner_id.')';
