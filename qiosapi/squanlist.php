@@ -38,6 +38,7 @@ $teams = DB::LimitQuery('team', array(
 
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
+
 foreach($teams as $key=>$value){
 	$str=array();
 	$str['certificateID']=$value['id'];
@@ -55,6 +56,7 @@ foreach($teams as $key=>$value){
 		$type = Table::Fetch('category', $sortid);
 		$str['typeName']=$type[$value['group_id']]['name'];
 	}else if($sort==2){
+		print_r($partners);
 		$str['type']=$partners[$value['partner_id']]['group_id'];
 	}
 	
