@@ -27,6 +27,10 @@ $partner_ids = Utility::GetColumn($partners, 'id');
 $partner_id=implode(',',$partner_ids);
 
 $condition=array('partner_id in ('.$partner_id.')');
+
+if($qid>0){
+	$condition[]='`id`<='.$qid.'';
+}
 $limit=6;
 
 $teams = DB::LimitQuery('team', array(
@@ -36,7 +40,7 @@ $teams = DB::LimitQuery('team', array(
 //	'offset' => $offset,
 ));
 
-$quan=array('code'=>2,'certificates'=>array());
+$quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 
 foreach($teams as $key=>$value){
 	$str=array();
