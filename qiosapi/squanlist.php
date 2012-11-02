@@ -17,7 +17,7 @@ if($sort==1){
 	$condition['group_id']=$sortid;
 }else if($sort==2){
 	$partners = DB::LimitQuery('partner', array(
-		'condition' => array('groupid'=>$sortid),
+		'condition' => array('group_id'=>$sortid),
 		'order' => 'ORDER BY head DESC, id DESC',
 	));
 	$partner_ids = Utility::GetColumn($partners, 'id');
