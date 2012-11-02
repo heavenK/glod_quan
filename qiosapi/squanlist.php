@@ -46,7 +46,7 @@ foreach($teams as $key=>$value){
 		$str['type']=$value['partner_id'];
 	}
 	$sortid=array(0=>$value['group_id']);
-	$type = Table::Fetch('category', $value['group_id']);
+	$type = Table::Fetch('category', $sortid);
 	print_r($type);
 	echo("<br>");
 	$str['likeCnt']=$value['now_number'];
