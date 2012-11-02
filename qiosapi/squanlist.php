@@ -15,7 +15,11 @@ if($qid>0){
 if($sort==1){
 	$condition['group_id']=$sortid;
 }else if($sort==2){
-	$condition['partner_id']=$sortid;
+	$partnerid=array(0=>$sortid);
+	$partners = Table::Fetch('partner', $partnerid);
+	$partner_ids = Utility::GetColumn($partners, 'id');
+	$partner_id=implode(',',$partner_ids);
+	$condition[]='partner_id in ('.$partner_id.')';
 }
 $city_id = abs(intval($city['id']));
 $condition[] = "((city_ids like '%@{$city_id}@%' or city_ids like '%@0@%') or city_id in(0,{$city_id}))";
@@ -27,6 +31,7 @@ $teams = DB::LimitQuery('team', array(
 	'size' => $limit,
 //	'offset' => $offset,
 ));
+print_r($teams);
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
 foreach($teams as $key=>$value){
@@ -46,11 +51,7 @@ foreach($teams as $key=>$value){
 		$type = Table::Fetch('category', $sortid);
 		$str['typeName']=$type[$value['group_id']]['name'];
 	}else if($sort==2){
-		$str['type']=$value['partner_id'];
-		$sortid=array(0=>$value['partner_id']);
-		$partner=Table::Fetch('category', $sortid);
-		print_r($partner);
-		echo("<br>");
+		$str['type']=$partners['group_id'];
 	}
 	
 	$str['likeCnt']=$value['now_number'];
