@@ -25,7 +25,7 @@ foreach($partners as $k=>$val){
 $partner_ids = Utility::GetColumn($partners, 'id');
 //$teams = Table::Fetch('team', $partner_ids);
 $partner_id=implode(',',$partner_ids);
-print_r($partners);
+
 $condition=array('partner_id in ('.$partner_id.')');
 
 if($qid>0){
