@@ -57,7 +57,7 @@ foreach($teams as $key=>$value){
 		$str['typeName']=$type[$value['group_id']]['name'];
 	}else if($sort==2){
 		foreach($partners as $pkey=>$pvalue){
-			if($value['partner_id']==$pvalue['partner_id']){
+			if($value['partner_id']==$pvalue['id']){
 				$str['type']=$pvalue['group_id'];
 			}
 		}
