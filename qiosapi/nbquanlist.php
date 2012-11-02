@@ -23,6 +23,7 @@ foreach($partners as $k=>$val){
 	}
 }
 $partner_ids = Utility::GetColumn($partners, 'id');
+print_r($partner_ids);
 //$teams = Table::Fetch('team', $partner_ids);
 $partner_id=implode(',',$partner_ids);
 
