@@ -42,6 +42,9 @@ foreach($teams as $key=>$value){
 	$str['title']=$value['title'];
 	if($sort==1){
 		$str['type']=$value['group_id'];
+		$sortid=array(0=>$value['group_id']);
+		$type = Table::Fetch('category', $sortid);
+		$str['typeName']=$type[$value['group_id']]['name'];
 	}else if($sort==2){
 		$str['type']=$value['partner_id'];
 	}
