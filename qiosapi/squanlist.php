@@ -45,10 +45,7 @@ foreach($teams as $key=>$value){
 	}else if($sort==2){
 		$str['type']=$value['partner_id'];
 	}
-	$sortid=array(0=>$value['group_id']);
-	$type = Table::Fetch('category', $sortid);
-	print_r($type);
-	echo("<br>");
+	
 	$str['likeCnt']=$value['now_number'];
 	$str['content']=$value['summary'];
 	array_push($quan['certificates'],$str);
