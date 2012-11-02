@@ -38,7 +38,7 @@ $teams = DB::LimitQuery('team', array(
 
 $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 $a=1;
-print_r($teams); 
+
 foreach($teams as $key=>$value){
 	$str=array();
 	$str['certificateID']=$value['id'];

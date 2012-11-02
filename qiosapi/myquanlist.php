@@ -44,12 +44,10 @@ foreach($teams as $key=>$value){
 		$str['imgURL2']=$value['image2'];
 	}
 	$str['title']=$value['title'];
-	if($sort==1){
-		$str['type']=$value['group_id'];
-	}else if($sort==2){
-		$str['type']=$value['partner_id'];
-	}
-	
+	$str['type']=$value['group_id'];
+	$sortid=array(0=>$value['group_id']);
+	$type = Table::Fetch('category', $sortid);
+	$str['typeName']=$type[$value['group_id']]['name'];
 	$str['likeCnt']=$value['now_number'];
 	$str['content']=$value['summary'];
 	array_push($quan['certificates'],$str);
