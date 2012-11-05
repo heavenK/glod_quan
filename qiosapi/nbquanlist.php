@@ -1,12 +1,13 @@
 <?php
-/*if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])&&empty($_REQUEST['lon'])&&empty($_REQUEST['lat'])){
+if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])&&empty($_REQUEST['lon'])&&empty($_REQUEST['lat'])){
 	$quan=array('code'=>4);
 	echo(json_encode($quan));
 	exit();
-}*/
+}
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 $lon=trim($_GET['lon']);
 $lat=trim($_GET['lat']);
+echo($lon."--".$lat);
 $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
 //	'offset' => $offset,
