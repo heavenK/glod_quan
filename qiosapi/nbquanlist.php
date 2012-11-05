@@ -54,6 +54,9 @@ foreach($teams as $key=>$value){
 	}
 	$str['title']=$value['title'];
 	$str['type']=$value['group_id'];
+	$sortid=array(0=>$value['group_id']);
+	$type = Table::Fetch('category', $sortid);
+	$str['typeName']=$type[$value['group_id']]['name'];
 	$str['likeCnt']=$value['now_number'];
 	$str['address']=$pstr[$value['partner_id']]['addr'];
 	$str['distance']=GetDistance($pstr[$value['partner_id']]['lat'],$pstr[$value['partner_id']]['lon'],$lat,$lon);
