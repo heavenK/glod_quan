@@ -5,10 +5,10 @@ if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])&&empty
 	exit();
 }
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-$qid=trim($_GET['certificateID']);
-$imgtype=trim($_GET['certificateType']);
-$sort=trim($_GET['type']);
-$sortid=trim($_GET['typeNum']);
+$qid=trim($_REQUEST['certificateID']);
+$imgtype=trim($_REQUEST['certificateType']);
+$sort=trim($_REQUEST['type']);
+$sortid=trim($_REQUEST['typeNum']);
 
 if($qid>0){
 	$condition=array('`id`<='.$qid.'');

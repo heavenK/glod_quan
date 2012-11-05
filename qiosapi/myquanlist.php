@@ -5,12 +5,12 @@
 	exit();
 }*/
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-if(trim($_GET['certificateID'])>-1){
-	$qid=trim($_GET['certificateID']);
+if(trim($_REQUEST['certificateID'])>-1){
+	$qid=trim($_REQUEST['certificateID']);
 }
-$imgtype=trim($_GET['certificateType']);
-$type=trim($_GET['type']);
-$uid=trim($_GET['uid']);
+$imgtype=trim($_REQUEST['certificateType']);
+$type=trim($_REQUEST['type']);
+$uid=trim($_REQUEST['uid']);
 $daytime = strtotime(date('Y-m-d'));
 $condition = array(
 	'user_id' => $uid,

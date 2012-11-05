@@ -5,8 +5,8 @@ if(empty($_REQUEST['certificateID'])&&empty($_REQUEST['certificateType'])&&empty
 	exit();
 }
 require_once(dirname(dirname(__FILE__)) . '/app.php');
-$lon=trim($_GET['lon']);
-$lat=trim($_GET['lat']);
+$lon=trim($_REQUEST['lon']);
+$lat=trim($_REQUEST['lat']);
 echo($lon."--".$lat);
 $partners = DB::LimitQuery('partner', array(
 //	'size' => $limit,
