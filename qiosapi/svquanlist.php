@@ -41,7 +41,9 @@ foreach($teams as $key=>$value){
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
 	$str['typeName']=$type[$value['group_id']]['name'];
-	$str['likeCnt']=$value['now_number'];
+	$lcondition=array('team_id'=>$value['id']);
+	$count = Table::Count('likecoupon', $lcondition);
+	$str['likeCnt']=$count;
 	$str['content']=$value['summary'];
 	array_push($quan['certificates'],$str);
 }

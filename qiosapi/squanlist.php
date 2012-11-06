@@ -62,7 +62,9 @@ foreach($teams as $key=>$value){
 			}
 		}
 	}
-	$str['likeCnt']=$value['now_number'];
+	$lcondition=array('team_id'=>$value['id']);
+	$count = Table::Count('likecoupon', $lcondition);
+	$str['likeCnt']=$count;
 	$str['content']=$value['summary'];
 	array_push($quan['certificates'],$str);
 }
