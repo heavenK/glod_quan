@@ -11,4 +11,5 @@ $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 ));
 $partner_ids = Utility::GetColumn($teams, 'partner_id');
+print_r($teams);
 ?>
