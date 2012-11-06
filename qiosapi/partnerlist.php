@@ -21,30 +21,28 @@ $teamss = DB::LimitQuery('team', array(
 	'condition' => array('partner_id'=>$partner_id),
 ));
 
-$partner_arr=array('code'=>2,'certificates'=>array());
+
 foreach($partner as $key=>$value){
-	$str=array();
-	$str['sellerName']=$value['title'];
-	$str['sellerImgURL']=$value['image'];
+	$partner_arr=array();
+	$partner_arr['sellerName']=$value['title'];
+	$partner_arr['sellerImgURL']=$value['image'];
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
-	$str['typeName']=$type[$value['group_id']]['name'];
-	$str['aveCost']=$value['title'];
-
-	
-
-	$str['likeCnt']=$value['title'];
-	$str['sellerAddress']=$value['address'];
+	$partner_arr['typeName']=$type[$value['group_id']]['name'];
+	$partner_arr['aveCost']=$value['averagecost'];
+	$lcondition=array('team_id'=>$qid);
+	$count = Table::Count('likecoupon', $lcondition);
+	$partner_arr['likeCnt']=$count;
+	$partner_arr['sellerAddress']=$value['address'];
 	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-	$str['sellerLon']=$longi;
-	$str['sellerLat']=$lati;
-	$str['sellerTel']=$value['phone'];
-	$str['cerContent']=$teams[0]['summary'];
-	$str['cerValidityDate']=date("Y.m.d",$teams[0]['end_time']);
-	$str['sellerContent']=$value['location'];
-	$str['imgURLs']=array($value['image1'],$value['image2']);
+	$partner_arr['sellerLon']=$longi;
+	$partner_arr['sellerLat']=$lati;
+	$partner_arr['sellerTel']=$value['phone'];
+	$partner_arr['cerContent']=$teams[0]['summary'];
+	$partner_arr['cerValidityDate']=date("Y.m.d",$teams[0]['end_time']);
+	$partner_arr['sellerContent']=$value['location'];
+	$partner_arr['imgURLs']=array($value['image1'],$value['image2']);
 }
-print_r($teamss);
-echo("<br>");
-print_r($partner);
+$partner_arr['code']=2;
+echo(json_encode($partner_arr));
 ?>
