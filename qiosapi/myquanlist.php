@@ -20,15 +20,16 @@ $condition = array(
 if($qid>0){
 	$condition[]='`team_id` <='.$qid.'';
 }
-
+$limit=6;
 $coupons = DB::LimitQuery('coupon', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY team_id DESC, create_time DESC',
-//	'size' => $pagesize,
+	'size' => $limit,
 //	'offset' => $offset,
 ));
-
+print_r($coupons); 
 $team_ids = Utility::GetColumn($coupons, 'team_id');
+$count = Table::Count('team', $condition);
 $teams = Table::Fetch('team', $team_ids);
 
 $quan=array('code'=>2,'certificates'=>array());
@@ -52,7 +53,11 @@ foreach($teams as $key=>$value){
 	$str['content']=$value['summary'];
 	array_push($quan['certificates'],$str);
 }
-
+if($count>$limit){
+	$quan['hasmore']=1;
+}else{
+	$quan['hasmore']=0;
+}
 echo(json_encode($quan));
 
 ?>
