@@ -10,6 +10,15 @@ $condition=array('id'=>$qid);
 $teams = DB::LimitQuery('team', array(
 	'condition' => $condition,
 ));
-$partner_ids = Utility::GetColumn($teams, 'partner_id');
+foreach($teams as $key=>$value){
+	$partner_id=$value['partner_id'];
+}
+$p_condition=array('id'=>$partner_id);
+$partner=DB::LimitQuery('partner', array(
+	'condition' => $p_condition,
+));
+
 print_r($teams);
+echo("<br>");
+print_r($partner);
 ?>
