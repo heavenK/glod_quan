@@ -21,18 +21,19 @@ if($qid>0){
 	$condition[]='`team_id` <='.$qid.'';
 }
 $limit=6;
+$count = Table::Count('coupon', $condition);
 $coupons = DB::LimitQuery('coupon', array(
 	'condition' => $condition,
 	'order' => 'ORDER BY team_id DESC, create_time DESC',
 	'size' => $limit,
 //	'offset' => $offset,
 ));
-print_r($coupons); 
+
 $team_ids = Utility::GetColumn($coupons, 'team_id');
-$count = Table::Count('team', $condition);
+
 $teams = Table::Fetch('team', $team_ids);
 
-$quan=array('code'=>2,'certificates'=>array());
+$quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 
 foreach($teams as $key=>$value){
 	$str=array();
