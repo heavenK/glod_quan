@@ -17,8 +17,9 @@ $p_condition=array('id'=>$partner_id);
 $partner=DB::LimitQuery('partner', array(
 	'condition' => $p_condition,
 ));
-$partner_ids = Utility::GetColumn($partners, 'id');
-$teamss = Table::Fetch('team', $partner_ids);
+$teamss = DB::LimitQuery('team', array(
+	'condition' => array('partner_id'=>$partner_id),
+));
 
 $partner_arr=array('code'=>2,'certificates'=>array());
 foreach($partner as $key=>$value){
