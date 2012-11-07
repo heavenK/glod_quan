@@ -7,4 +7,5 @@ if ( !$team || $team['begin_time']>time() ) {
 	redirect( WEB_ROOT . '/index.php' );
 }
 echo($login_user_id);
+print_r($login_user);
 ?>
