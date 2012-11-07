@@ -11,6 +11,6 @@ $data['user_name']=$login_user['username'];
 $data['partner_id']=$team['partner_id'];
 $data['team_id']=$team['id'];
 $data['create_time']=time();
-DB::Insert('likecoupon', $data);
-print_r($team);
+$insertid=DB::Insert('likecoupon', $data);
+print_r($insertid);
 ?>
