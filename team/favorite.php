@@ -6,6 +6,8 @@ if ( !$team || $team['begin_time']>time() ) {
 	Session::Set('error', '团购项目不存在');
 	redirect( WEB_ROOT . '/index.php' );
 }
-echo($login_user_id);
-print_r($login_user);
+$data['user_id']=$login_user_id;
+$data['user_name']=$login_user['username'];
+$data['partner_id']='';
+print_r($team);
 ?>
