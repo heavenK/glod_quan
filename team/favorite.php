@@ -4,7 +4,7 @@ need_login();
 $id = abs(intval($_GET['id']));
 $team = Table::Fetch('team', $id);
 if ( !$team || $team['begin_time']>time() ) {
-	Session::Set('error', 'ÍÅ¹ºÏîÄ¿²»´æÔÚ');
+	Session::Set('error', 'å›¢è´­é¡¹ç›®ä¸å­˜åœ¨');
 	redirect( WEB_ROOT . '/index.php' );
 }
 $data['user_id']=$login_user_id;
@@ -13,6 +13,6 @@ $data['partner_id']=$team['partner_id'];
 $data['team_id']=$team['id'];
 $data['create_time']=time();
 $insertid=DB::Insert('likecoupon', $data);
-Session::Set('notice', "¹ºÂò³É¹¦£¡");
+Session::Set('notice', "è´­ä¹°æˆåŠŸï¼");
 redirect( WEB_ROOT . "/team.php?id={$id}");
 ?>
