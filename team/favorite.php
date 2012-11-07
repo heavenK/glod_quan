@@ -13,6 +13,6 @@ $data['partner_id']=$team['partner_id'];
 $data['team_id']=$team['id'];
 $data['create_time']=time();
 $insertid=DB::Insert('likecoupon', $data);
-Session::Set('notice', "购买成功！");
+Session::Set('notice', "收藏成功！");
 redirect( WEB_ROOT . "/team.php?id={$id}");
 ?>
