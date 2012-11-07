@@ -8,6 +8,9 @@ if ( !$team || $team['begin_time']>time() ) {
 }
 $data['user_id']=$login_user_id;
 $data['user_name']=$login_user['username'];
-$data['partner_id']='';
+$data['partner_id']=$team['partner_id'];
+$data['team_id']=$team['id'];
+$data['create_time']=time();
+DB::Insert('likecoupon', $data);
 print_r($team);
 ?>
