@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/app.php');
+need_login();
 $id = abs(intval($_GET['id']));
 $team = Table::Fetch('team', $id);
 if ( !$team || $team['begin_time']>time() ) {
