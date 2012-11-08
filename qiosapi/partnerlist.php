@@ -41,7 +41,7 @@ foreach($partner as $key=>$value){
 	$partner_arr['cerContent']=$teams[0]['summary'];
 	$partner_arr['cerValidityDate']=date("Y.m.d",$teams[0]['end_time']);
 	$partner_arr['sellerContent']=$value['location'];
-	$partner_arr['imgURLs']=array('imgURL'=>$value['image1'],'imgURL'=>$value['image2']);
+	$partner_arr['imgURLs']=array('imgURL1'=>$value['image1'],'imgURL2'=>$value['image2']);
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
