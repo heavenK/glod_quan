@@ -20,6 +20,7 @@ foreach($favors as $key=>$value){
 	$favorss[$key]['team_id']=$value['team_id'];
 	$favorss[$key]['title']=$teams[$value['team_id']]['title'];
 	$favorss[$key]['partner']=$partners[$value['partner_id']]['title'];
+	$favorss[$key]['end_time']=$teams[$value['team_id']]['end_time'];
 	$favorss[$key]['expire_time']=$teams[$value['team_id']]['expire_time'];
 }
 $pagetitle = '喜欢的优惠券';
