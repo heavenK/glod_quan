@@ -12,8 +12,8 @@ $favors=DB::LimitQuery('likecoupon', array(
 	'size' => $pagesize,
 	'offset' => $offset,
 ));
-foreach($favors as $key=>$value){
-	$teams=Table::Fetch('team', $value['team_id']);
-	print_r($teams);
-}
+$team_ids = Utility::GetColumn($favors, 'team_id');
+$teams = Table::Fetch('team', $team_ids);
+$partner_ids = Utility::GetColumn($favors, 'partner_id');
+$partners = Table::Fetch('partner', $partner_ids);
 ?>
