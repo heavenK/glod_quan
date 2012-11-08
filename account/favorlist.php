@@ -17,6 +17,7 @@ $teams = Table::Fetch('team', $team_ids);
 $partner_ids = Utility::GetColumn($favors, 'partner_id');
 $partners = Table::Fetch('partner', $partner_ids);
 foreach($favors as $key=>$value){
+	$favorss[$key]['team_id']=$value['team_id'];
 	$favorss[$key]['title']=$teams[$value['team_id']]['title'];
 	$favorss[$key]['partner']=$partners[$value['partner_id']]['title'];
 	$favorss[$key]['expire_time']=$teams[$value['team_id']]['expire_time'];

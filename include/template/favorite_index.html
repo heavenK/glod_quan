@@ -19,10 +19,10 @@
 					<!--{/if}-->
 					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
 						<tr><th width="240">项目名称</th><th width="100" nowrap>商家</th><th width="100" nowrap>有效日期</th><th width="100">操作</th></tr>
-					<!--{loop $coupons $index $one}-->
+					<!--{loop ￥favorss $index $one}-->
 						<tr ${$index%2?'':'class="alt"'}>
-							<td><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
-							<td>{$one['id']}</td>
+							<td><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$one['title']}</a></td>
+							<td>{$one['partner']}</td>
 							<td>${date('Y-m-d', $one['expire_time'])}</td>
 							<td><a class="ajaxlink" href="/ajax/coupon.php?action=mobile_choice&mid={$one['order_id']}&id={$one['id']}">短信</a>｜<a href="/coupon/print.php?id={$one['id']}" target="_blank">打印</a></td>
 						</tr>	
