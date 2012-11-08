@@ -23,6 +23,7 @@
 						<tr ${$index%2?'':'class="alt"'}>
 							<td><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$one['title']}</a></td>
 							<td>{$one['partner']}</td>
+							<td>${date('Y-m-d', $one['end_time'])}</td>
 							<td>${date('Y-m-d', $one['expire_time'])}</td>
 						</tr>	
 					<!--{/loop}-->
