@@ -21,6 +21,6 @@ foreach($favors as $key=>$value){
 	$favorss[$key]['partner']=$partners[$value['partner_id']]['title'];
 	$favorss[$key]['expire_time']=$teams[$value['team_id']]['expire_time'];
 }
-$pagetitle = 'Ï²»¶µÄÓÅ»ÝÈ¯';
+$pagetitle = 'å–œæ¬¢çš„ä¼˜æƒ åˆ¸';
 include template('favorite_index');
 ?>

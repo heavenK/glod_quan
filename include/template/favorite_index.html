@@ -10,24 +10,24 @@
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">
-                    <h2>ÎÒµÄ{$INI['system']['couponname']}</h2>
+                    <h2>æˆ‘çš„{$INI['system']['couponname']}</h2>
                     <ul class="filter">
-						<li class="label">·ÖÀà: </li>
+						<li class="label">åˆ†ç±»: </li>
 						${current_coupon_sub('index')}
 					</ul>
 				</div>
                 <div class="sect">
 					<!--{if $selector=='index'&&!$coupons}-->
-					<div class="notice">Ä¿Ç°Ã»ÓĞ¿ÉÓÃµÄ{$INI['system']['couponname']}</div>
+					<div class="notice">ç›®å‰æ²¡æœ‰å¯ç”¨çš„{$INI['system']['couponname']}</div>
 					<!--{/if}-->
 					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
-						<tr><th width="240">ÏîÄ¿Ãû³Æ</th><th width="100" nowrap>ÉÌ¼Ò</th><th width="100" nowrap>ÓĞĞ§ÈÕÆÚ</th><th width="100">²Ù×÷</th></tr>
+						<tr><th width="240">é¡¹ç›®åç§°</th><th width="100" nowrap>å•†å®¶</th><th width="100" nowrap>æœ‰æ•ˆæ—¥æœŸ</th><th width="100">æ“ä½œ</th></tr>
 					<!--{loop $coupons $index $one}-->
 						<tr ${$index%2?'':'class="alt"'}>
 							<td><a class="deal-title" href="/team.php?id={$one['team_id']}" target="_blank">{$teams[$one['team_id']]['title']}</a></td>
 							<td>{$one['id']}</td>
 							<td>${date('Y-m-d', $one['expire_time'])}</td>
-							<td><a class="ajaxlink" href="/ajax/coupon.php?action=mobile_choice&mid={$one['order_id']}&id={$one['id']}">¶ÌĞÅ</a>£ü<a href="/coupon/print.php?id={$one['id']}" target="_blank">´òÓ¡</a></td>
+							<td><a class="ajaxlink" href="/ajax/coupon.php?action=mobile_choice&mid={$one['order_id']}&id={$one['id']}">çŸ­ä¿¡</a>ï½œ<a href="/coupon/print.php?id={$one['id']}" target="_blank">æ‰“å°</a></td>
 						</tr>	
 					<!--{/loop}-->
 						<tr><td colspan="5">{$pagestring}</td></tr>
