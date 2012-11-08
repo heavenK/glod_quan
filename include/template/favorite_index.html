@@ -3,18 +3,15 @@
 <div id="bd" class="cf">
 <div id="coupons">
 	<div class="dashboard" id="dashboard">
-		<ul>${current_account('/coupon/index.php')}</ul>
+		<ul>${current_account('/account/favorlist.php')}</ul>
 	</div>
     <div id="content" class="coupons-box clear">
 		<div class="box clear">
             <div class="box-top"></div>
             <div class="box-content">
                 <div class="head">
-                    <h2>我的{$INI['system']['couponname']}</h2>
-                    <ul class="filter">
-						<li class="label">分类: </li>
-						${current_coupon_sub('index')}
-					</ul>
+                    <h2>喜爱的{$INI['system']['couponname']}</h2>
+                    
 				</div>
                 <div class="sect">
 					<!--{if $selector=='index'&&!$coupons}-->
