@@ -118,7 +118,7 @@ function current_account($selector='/account/settings.php') {
 		'/order/index.php' => '我的订单',
 		'/account/refer.php' => '我的邀请',
 		'/account/settings.php' => '账户信息',
-		'/account/favorlist.php' => '喜爱的订单',
+		'/account/favorlist.php' => '喜爱的订单',		//收藏的金券
 	);
 	if (option_yes('usercredit')) {
 		$a['/credit/score.php'] = '我的积分';
