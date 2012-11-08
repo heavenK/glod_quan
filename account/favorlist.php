@@ -16,4 +16,8 @@ $team_ids = Utility::GetColumn($favors, 'team_id');
 $teams = Table::Fetch('team', $team_ids);
 $partner_ids = Utility::GetColumn($favors, 'partner_id');
 $partners = Table::Fetch('partner', $partner_ids);
+print_r($teams);
+echo("<br>");
+print_r($partners);
+
 ?>
