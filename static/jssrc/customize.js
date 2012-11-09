@@ -91,17 +91,21 @@ jQuery('#sysmsg-guide-close').click(function(){
 		var v = jQuery(this).attr('value');
 		if ( v == 'express' ) {
 			jQuery('#express-zone-express').css('display', 'block');
+			jQuery('#express-zone-voucher').css('display', 'none');
 			jQuery('#express-zone-pickup').css('display', 'none');
 			jQuery('#express-zone-coupon').css('display', 'none');
 		} else if ( v == 'pickup' ) {
 			jQuery('#express-zone-pickup').css('display', 'block');
+			jQuery('#express-zone-voucher').css('display', 'none');
 			jQuery('#express-zone-express').css('display', 'none');
 			jQuery('#express-zone-coupon').css('display', 'none');
 		} else if (v == 'coupon') {
 			jQuery('#express-zone-coupon').css('display', 'block');
+			jQuery('#express-zone-voucher').css('display', 'none');
 			jQuery('#express-zone-pickup').css('display', 'none');
 			jQuery('#express-zone-express').css('display', 'none');
 		} else if (v == 'voucher') {
+			jQuery('#express-zone-voucher').css('display', 'none');
 			jQuery('#express-zone-coupon').css('display', 'none');
 			jQuery('#express-zone-pickup').css('display', 'none');
 			jQuery('#express-zone-express').css('display', 'none');
