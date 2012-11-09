@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="screen" charset="utf-8" />
 	<script type="text/javascript">var WEB_ROOT = '${WEB_ROOT}';</script>
 	<script src="/static/js/index.js" type="text/javascript"></script>
-	
+	<script type="text/javascript" src="/static/js/datepicker/WdatePicker.js"></script>
+	${Session::Get('script',true);}
 </head>
 <body class="${$request_uri=='index'?'bg-alt':'newbie'}">
 <div id="pagemasker"></div><div id="dialog"></div>
