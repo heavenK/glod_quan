@@ -114,8 +114,7 @@ class Table
 		}
 		if (empty($up_array) )
 			return true;
-print_r($up_array);
-exit();
+
 		return DB::Insert($this->table_name, $up_array);
 	}
 
