@@ -41,7 +41,7 @@ else if ( is_post() ) {
 		'express', 'credit', 'farefree', 'pre_number',
 		'user_id', 'city_id', 'group_id','sub_id', 'partner_id',
 		'team_type', 'sort_order', 'farefree', 'state',
-		'condbuy','express_relate','city_ids'
+		'condbuy','express_relate','city_ids','qimage'
 		);
 	$team['user_id'] = $login_user_id;
 	$team['state'] = 'none';
@@ -57,6 +57,7 @@ else if ( is_post() ) {
 	$team['image'] = upload_image('upload_image',$eteam['image'],'team',true);
 	$team['image1'] = upload_image('upload_image1',$eteam['image1'],'team');
 	$team['image2'] = upload_image('upload_image2',$eteam['image2'],'team');
+	$team['image2'] = upload_image('upload_image2',$eteam['qimage'],'team');
 	/* 序列化选取的城市 */
 	if (!empty($team['city_ids'])) {
 		if(in_array(0, $team['city_ids'])) { 
