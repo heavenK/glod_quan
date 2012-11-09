@@ -100,6 +100,7 @@ jQuery('#sysmsg-guide-close').click(function(){
 			jQuery('#express-zone-express').css('display', 'none');
 			jQuery('#express-zone-coupon').css('display', 'none');
 		} else if (v == 'coupon') {
+			alert("1111");
 			jQuery('#express-zone-coupon').css('display', 'block');
 			jQuery('#express-zone-voucher').css('display', 'none');
 			jQuery('#express-zone-pickup').css('display', 'none');
