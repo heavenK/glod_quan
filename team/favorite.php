@@ -43,6 +43,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$id = abs(intval($_GET['id']));
 	$team = Table::Fetch('team', $id);
 	print_r($team);
+	exit();
 	if ( !$team || $team['begin_time']>time() ) {
 		Session::Set('error', '团购项目不存在');
 		redirect( WEB_ROOT . '/index.php' );
