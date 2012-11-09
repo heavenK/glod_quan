@@ -169,6 +169,13 @@
 							<span class="inputtip">消费{$INI['system']['couponname']}时，获得账户余额返利，单位CNY元</span>
 						</div>
 					</div>
+					<div id="express-zone-voucher" style="display:${$team['delivery']=='voucher'?'block':'none'};">
+						<div class="field">
+						<label>优惠券图片</label>
+						<input type="file" size="30" name="quan_image" id="team-create-image1" class="f-input" />
+						<!--{if $team['image1']}--><span class="hint" id="team_image_1">${team_image($team['qimage'])}&nbsp;&nbsp;<a href="javascript:;" onclick="X.team.imageremove({$team['id']}, 1);">删除</a></span><!--{/if}-->
+						</div>
+					</div>
 					<div id="express-zone-pickup" style="display:${$team['delivery']=='pickup'?'block':'none'};">
 						<div class="field">
 							<label>联系电话</label>
