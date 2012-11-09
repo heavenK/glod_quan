@@ -57,7 +57,7 @@ else if ( is_post() ) {
 	$team['image'] = upload_image('upload_image',$eteam['image'],'team',true);
 	$team['image1'] = upload_image('upload_image1',$eteam['image1'],'team');
 	$team['image2'] = upload_image('upload_image2',$eteam['image2'],'team');
-	$team['image2'] = upload_image('upload_image2',$eteam['qimage'],'team');
+	$team['qimage'] = upload_image('upload_image2',$eteam['qimage'],'team');
 	/* 序列化选取的城市 */
 	if (!empty($team['city_ids'])) {
 		if(in_array(0, $team['city_ids'])) { 
