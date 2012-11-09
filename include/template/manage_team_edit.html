@@ -232,47 +232,6 @@
 </div> <!-- bdw end -->
 
 <script type="text/javascript">
-window.x_init_hook_teamchangetype = function(){
-	X.team.changetype("{$team['team_type']}");
-};
-window.x_init_hook_page = function() {
-	X.team.imageremovecall = function(v) {
-		jQuery('#team_image_'+v).remove();
-	};
-	X.team.imageremove = function(id, v) {
-		return !X.get(WEB_ROOT + '/ajax/misc.php?action=imageremove&id='+id+'&v='+v);
-	};
-};
-$(function(){
-	$('#city_all').click(function(){
-		if($(this).attr('checked') == true){
-			$('.city_checkbox').attr('checked',true);
-		}else{
-			$('.city_checkbox').attr('checked',false);
-		}
-	});
-	$('.city_checkbox').click(function(){
-		if($(this).attr('checked') == false){
-			$('#city_all').attr('checked',false);
-		}
-	});
-	$('.field input[name="p_id"]').keyup(function(){
-		$.get("part.php",{
-				'value':$("#partner_id").val()
-			},function(data){
-			s = $("#partner_id").val();
-			if(data=='0') $("#partner_id").css('color','#FFCC33');
-			else $("#partner_select").load('part.php?value='+s );
-		});
-	});
 
-});
-function changecate(cid) {
-	$.get("category.php",{
-		'cateid':cid
-		},function(data){
-			$("#sub_id").load('category.php?cateid='+cid );
-		});
-}
 </script>
 <!--{include manage_footer}-->
