@@ -3,7 +3,7 @@ require_once(dirname(dirname(__FILE__)) . '/app.php');
 if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$user_id=isset($_REQUEST['userId'])?trim(strip_tags($_REQUEST['userId'])):'';
 	$user_name=isset($_REQUEST['userName'])?trim(strip_tags($_REQUEST['userName'])):'';
-	$qid=isset($_REQUEST['quanId'])?trim(strip_tags($_REQUEST['userId'])):'';
+	$qid=isset($_REQUEST['quanId'])?trim(strip_tags($_REQUEST['quanId'])):'';
 	$id = abs(intval($qid));
 	$team = Table::Fetch('team', $id);
 	if ( !$team || $team['begin_time']>time() ) {
@@ -45,6 +45,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	print_r($team);
 	exit();
 	if ( !$team || $team['begin_time']>time() ) {
+		echo("111");
 		Session::Set('error', '团购项目不存在');
 		redirect( WEB_ROOT . '/index.php' );
 	}
