@@ -105,7 +105,7 @@ jQuery('#sysmsg-guide-close').click(function(){
 			jQuery('#express-zone-pickup').css('display', 'none');
 			jQuery('#express-zone-express').css('display', 'none');
 		} else if (v == 'voucher') {
-			jQuery('#express-zone-voucher').css('display', 'none');
+			jQuery('#express-zone-voucher').css('display', 'block');
 			jQuery('#express-zone-coupon').css('display', 'none');
 			jQuery('#express-zone-pickup').css('display', 'none');
 			jQuery('#express-zone-express').css('display', 'none');
