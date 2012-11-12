@@ -1,7 +1,6 @@
 <?php
 function sms_send($phone, $content) {
 	global $INI;
-	echo(dirname(__FILE__));
 	if (mb_strlen($content, 'UTF-8') < 20) {
 		return '短信长度低于20汉字？长点吧～';
 	}
