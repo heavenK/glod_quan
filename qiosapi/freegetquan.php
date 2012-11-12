@@ -25,6 +25,16 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['mobile']=$phone;
 	$data['content']='测试短信，优惠券代码test123456789,感谢参与测试。';
 	$data['create_time']=time();
+	$condition=array(
+					'team_id'=>$team['id'],
+					'mobile'=>$phone
+	);
+	$count = Table::Count('mobile_option', $condition);
+	if ( $coupon['sms']>=$sms_number) {
+		$back=array("message"=>'短信发送优惠券最多'.$sms_number.'次');
+		echo(json_encode($back));
+		exit();
+	}
 	$res=sms_send($phone,$data['content']);
 	if($res===true){
 		$data['state']="发送成功";
