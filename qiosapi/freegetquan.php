@@ -12,6 +12,12 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 		echo(json_encode($back));
 		exit();
 	}
+	echo($INI['sms']['numbers']);
+	if($INI['sms']['numbers'] =='' || $INI['sms']['numbers']=='0') {
+		 $sms_number = 5;
+	} else {	
+	     $sms_number = $INI['sms']['numbers']; 
+	}
 	$data['user_id']=$user_id;
 	$data['user_name']=$user_name;
 	$data['partner_id']=$team['partner_id'];
