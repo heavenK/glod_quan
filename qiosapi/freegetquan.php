@@ -30,7 +30,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 					'mobile'=>$phone
 	);
 	$count = Table::Count('mobile_option', $condition);
-	if ( $coupon['sms']>=$sms_number) {
+	if ( $count>=$sms_number) {
 		$back=array("message"=>'短信发送优惠券最多'.$sms_number.'次');
 		echo(json_encode($back));
 		exit();
