@@ -8,7 +8,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$id = abs(intval($qid));
 	$team = Table::Fetch('team', $id);
 	if ( !$team || $team['begin_time']>time() ) {
-		$back=array("err"=>1);
+		$back=array("message"=>"优惠券过期");
 		echo(json_encode($back));
 		exit();
 	}
@@ -20,7 +20,14 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['content']='测试短信，优惠券代码test123456789,感谢参与测试。';
 	$data['create_time']=time();
 	$res=sms_send($phone,$data['content']);
-echo($res);
+	if($res===true){
+		$back=array("message"=>1);
+		echo(json_encode($back));
+	}else{
+		$back=array("message"=>$res);
+		echo(json_encode($back));
+	}
+
 }else if(isset($_REQUEST['type'])&&$_REQUEST['type']=='P'){
 	$user_id=isset($_REQUEST['userId'])?trim(strip_tags($_REQUEST['userId'])):'';
 	$user_name=isset($_REQUEST['userName'])?trim(strip_tags($_REQUEST['userName'])):'';
