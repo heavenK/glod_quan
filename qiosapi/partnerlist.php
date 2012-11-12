@@ -45,7 +45,7 @@ foreach($partner as $key=>$value){
 	if($teams[0]['delivery']=='voucher'){
 		$partner_arr['cerDelivery']='picture';
 	}else if($teams[0]['delivery']=='express'){
-		$partner_arr['cerDelivery']='Mobile';
+		$partner_arr['cerDelivery']='mobile';
 	}
 	$partner_arr['sellerContent']=$value['location'];
 	$partner_arr['imgURLs']=array(array('imgURL'=>$value['image1']),array('imgURL'=>$value['image2']));
