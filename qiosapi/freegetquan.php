@@ -21,6 +21,13 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['create_time']=time();
 	$res=sms_send($phone,$data['content']);
 	if($res===true){
+		$data['state']="发送成功";
+		$insertid=DB::Insert('mobile_option', $data);
+		if($insertid<1){
+			$back=array("message"=>"系统错误");
+			echo(json_encode($back));
+			exit();
+		}
 		$back=array("message"=>"发送成功");
 		echo(json_encode($back));
 	}else{
