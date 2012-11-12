@@ -8,7 +8,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$id = abs(intval($qid));
 	$team = Table::Fetch('team', $id);
 	if ( !$team || $team['begin_time']>time() ) {
-		$back=array("message"=>"ÓÅ»İÈ¯¹ıÆÚ");
+		$back=array("message"=>"ä¼˜æƒ åˆ¸è¿‡æœŸ");
 		echo(json_encode($back));
 		exit();
 	}
@@ -17,11 +17,11 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['partner_id']=$team['partner_id'];
 	$data['team_id']=$team['id'];
 	$data['mobile']=$phone;
-	$data['content']='²âÊÔ¶ÌĞÅ£¬ÓÅ»İÈ¯´úÂëtest123456789,¸ĞĞ»²ÎÓë²âÊÔ¡£';
+	$data['content']='æµ‹è¯•çŸ­ä¿¡ï¼Œä¼˜æƒ åˆ¸ä»£ç test123456789,æ„Ÿè°¢å‚ä¸æµ‹è¯•ã€‚';
 	$data['create_time']=time();
 	$res=sms_send($phone,$data['content']);
 	if($res===true){
-		$back=array("message"=>"·¢ËÍ³É¹¦");
+		$back=array("message"=>"å‘é€æˆåŠŸ");
 		echo(json_encode($back));
 	}else{
 		$back=array("message"=>$res);
