@@ -4,7 +4,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$user_id=isset($_REQUEST['userId'])?trim(strip_tags($_REQUEST['userId'])):'';
 	$user_name=isset($_REQUEST['userName'])?trim(strip_tags($_REQUEST['userName'])):'';
 	$qid=isset($_REQUEST['quanId'])?trim(strip_tags($_REQUEST['quanId'])):'';
-	$phone=isset($_REQUEST['phone'])?trim(strip_tags($_REQUEST['quanId'])):'';
+	$phone=isset($_REQUEST['phone'])?trim(strip_tags($_REQUEST['phone'])):'';
 	$id = abs(intval($qid));
 	$team = Table::Fetch('team', $id);
 	if ( !$team || $team['begin_time']>time() ) {
