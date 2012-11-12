@@ -48,7 +48,7 @@ foreach($partner as $key=>$value){
 		$partner_arr['cerDelivery']='mobile';
 	}
 	$partner_arr['sellerContent']=$value['location'];
-	$partner_arr['imgURLs']=array(array('imgURL'=>$value['image1']),array('imgURL'=>$value['image2']));
+	$partner_arr['imgURLs']=array(array('imgURL'=>team_image($value['image1'])),array('imgURL'=>team_image($value['image2'])));
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
