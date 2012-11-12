@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
-	echo sms_send(1391234567,'111111');
+	echo sms_send(1391234567,'가가가가가가가가가가가가가가가가가가가가가가가가가가가');
 }else if(isset($_REQUEST['type'])&&$_REQUEST['type']=='P'){
 	$user_id=isset($_REQUEST['userId'])?trim(strip_tags($_REQUEST['userId'])):'';
 	$user_name=isset($_REQUEST['userName'])?trim(strip_tags($_REQUEST['userName'])):'';
