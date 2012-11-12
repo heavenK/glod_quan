@@ -21,7 +21,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['create_time']=time();
 	$res=sms_send($phone,$data['content']);
 	if($res===true){
-		$back=array("message"=>1);
+		$back=array("message"=>"·¢ËÍ³É¹¦");
 		echo(json_encode($back));
 	}else{
 		$back=array("message"=>$res);
