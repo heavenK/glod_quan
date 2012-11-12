@@ -9,7 +9,7 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$id = abs(intval($qid));
 	$team = Table::Fetch('team', $id);
 	if ( !$team || $team['begin_time']>time() ) {
-		$back=array("err"=>3);
+		$back=array("err"=>1);
 		echo(json_encode($back));
 		exit();
 	}
@@ -19,23 +19,11 @@ if(isset($_REQUEST['type'])&&$_REQUEST['type']=='M'){
 	$data['team_id']=$team['id'];
 	$data['create_time']=time();
 	if(empty($team['qimage'])){
-		$back=array('err'=>5);
+		$back=array('err'=>2);
 		echo(json_encode($back));
 		exit();
 	}
 	$image=team_image($team['qimage']);
-	$condition=array('user_id'=>$user_id,
-					'user_name'=>$user_name,
-					'team_id'=>$team['id']
-					);
-	$optdata=DB::LimitQuery('mobile_option', array(
-		'condition' => $condition,
-	));
-	if(!empty($optdata)){
-		$back=array("err"=>4);
-		echo(json_encode($back));
-		exit();
-	}
 	$insertid=DB::Insert('mobile_option', $data);
 	if($insertid>0){
 		$back=array('image'=>$image);
