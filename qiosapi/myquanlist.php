@@ -52,7 +52,7 @@ foreach($teams as $key=>$value){
 	$str['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
 	$lcondition=array('team_id'=>$value['id']);
 	$count = Table::Count('likecoupon', $lcondition);
-	$str['likeCnt']=empty($count)?0:$count);
+	$str['likeCnt']=empty($count)?0:$count;
 	$str['content']=empty($value['summary'])?0:$value['summary'];
 	array_push($quan['certificates'],$str);
 }
