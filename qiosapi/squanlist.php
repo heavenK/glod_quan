@@ -41,31 +41,31 @@ $a=1;
 
 foreach($teams as $key=>$value){
 	$str=array();
-	$str['certificateID']=$value['id'];
+	$str['certificateID']=empty($value['id'])?0:$value['id'];
 	if($imgtype==2){
-		$str['imgURL']=team_image($value['image'], true);
+		$str['imgURL']=empty($value['image'])?0:team_image($value['image'], true);
 	}else{
-		$str['imgURL']=$value['image'];
-		$str['imgURL1']=$value['image1'];
-		$str['imgURL2']=$value['image2'];
+		$str['imgURL']=empty($value['image'])?0:$value['image'];
+		$str['imgURL1']=empty($value['image1'])?0:$value['image1'];
+		$str['imgURL2']=empty($value['image2'])?0:$value['image2'];
 	}
-	$str['title']=$value['title'];
+	$str['title']=empty($value['title'])?0:$value['title'];
 	if($sort==1){
-		$str['type']=$value['group_id'];
+		$str['type']=empty($value['group_id'])?0:$value['group_id'];
 		$sortid=array(0=>$value['group_id']);
 		$type = Table::Fetch('category', $sortid);
-		$str['typeName']=$type[$value['group_id']]['name'];
+		$str['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
 	}else if($sort==2){
 		foreach($partners as $pkey=>$pvalue){
 			if($value['partner_id']==$pvalue['id']){
-				$str['type']=$pvalue['group_id'];
+				$str['type']=empty($pvalue['group_id'])?0:$pvalue['group_id'];
 			}
 		}
 	}
 	$lcondition=array('team_id'=>$value['id']);
 	$count = Table::Count('likecoupon', $lcondition);
-	$str['likeCnt']=$count;
-	$str['content']=$value['summary'];
+	$str['likeCnt']=empty($count)?0:$count;
+	$str['content']=empty($value['summary'])?0:$value['summary'];
 	array_push($quan['certificates'],$str);
 }
 if($count>$limit){
