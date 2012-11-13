@@ -50,9 +50,9 @@ foreach($partner as $key=>$value){
 		$partner_arr['cerDelivery']=0;
 	}
 	$partner_arr['sellerContent']=empty($value['location'])?0:$value['location'];
-	/*$image1=empty($value['image1'])?0:$value['image1'];
+	$image1=empty($value['image1'])?0:$value['image1'];
 	$image2=empty($value['image2'])?0:$value['image2'];
-	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2)));*/
+	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2));
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
