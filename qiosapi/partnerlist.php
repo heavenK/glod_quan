@@ -25,7 +25,7 @@ $teamss = DB::LimitQuery('team', array(
 foreach($partner as $key=>$value){
 	$partner_arr=array();
 	$partner_arr['sellerName']=empty($value['title'])?0:$value['title'];
-/*	$partner_arr['sellerImgURL']=empty($value['image'])?0:$value['image'];
+	$partner_arr['sellerImgURL']=empty($value['image'])?0:$value['image'];
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
 	$partner_arr['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
@@ -34,7 +34,7 @@ foreach($partner as $key=>$value){
 	$count = Table::Count('likecoupon', $lcondition);
 	$partner_arr['likeCnt']=empty($count)?0:$count;
 	$partner_arr['sellerAddress']=empty($value['address'])?0:$value['address'];
-	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
+/*	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
 	$partner_arr['sellerLon']=empty($longi)?0:(int)$longi;
 	$partner_arr['sellerLat']=empty($lati)?0:(int)$lati;
 //	$partner_arr['sellerLon']=38.858822;
