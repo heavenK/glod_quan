@@ -44,24 +44,28 @@ $quan=array('code'=>2,'certificates'=>array(),'hasmore'=>1);
 
 foreach($teams as $key=>$value){
 	$str=array();
-	$str['certificateID']=$value['id'];
+	$str['certificateID']=empty($value['id'])?0:$value['id'];
 	if($imgtype==2){
-		$str['imgURL']=team_image($value['image'], true);
+		$str['imgURL']=empty($value['image'])?0:team_image($value['image'], true);
 	}else{
-		$str['imgURL']=$value['image'];
-		$str['imgURL1']=$value['image1'];
-		$str['imgURL2']=$value['image2'];
+		$str['imgURL']=empty($value['image'])?0:$value['image'];
+		$str['imgURL1']=empty($value['image1'])?0:$value['image1'];
+		$str['imgURL2']=empty($value['image2'])?0:$value['image2'];
 	}
-	$str['title']=$value['title'];
-	$str['type']=$value['group_id'];
+	$str['title']=empty($value['title'])?0:$value['title'];
+	$str['type']=empty($value['group_id'])?0:$value['group_id'];
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
-	$str['typeName']=$type[$value['group_id']]['name'];
+	$str['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
 	$lcondition=array('team_id'=>$value['id']);
 	$count = Table::Count('likecoupon', $lcondition);
-	$str['likeCnt']=$count;
-	$str['address']=$pstr[$value['partner_id']]['addr'];
-	$str['distance']=GetDistance($pstr[$value['partner_id']]['lat'],$pstr[$value['partner_id']]['lon'],$lat,$lon);
+	$str['likeCnt']=empty($count)?0:$count;
+	$str['address']=empty($pstr[$value['partner_id']]['addr'])?0:$pstr[$value['partner_id']]['addr'];
+	if(empty($pstr[$value['partner_id']]['lat'])&&empty($pstr[$value['partner_id']]['lon'])){
+		$str['distance']=0;
+	}else{
+		$str['distance']=GetDistance($pstr[$value['partner_id']]['lat'],$pstr[$value['partner_id']]['lon'],$lat,$lon);
+	}
 	array_push($quan['certificates'],$str);
 }
 if($count>$limit){
