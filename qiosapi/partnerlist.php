@@ -43,9 +43,11 @@ foreach($partner as $key=>$value){
 	$partner_arr['cerContent']=$teams[0]['summary'];
 	$partner_arr['cerValidityDate']=date("Y.m.d",$teams[0]['end_time']);
 	if($teams[0]['delivery']=='voucher'){
-		$partner_arr['cerDelivery']='1';
+		$partner_arr['cerDelivery']=1;
 	}else if($teams[0]['delivery']=='express'){
-		$partner_arr['cerDelivery']='2';
+		$partner_arr['cerDelivery']=2;
+	}else{
+		$partner_arr['cerDelivery']=0;
 	}
 	$partner_arr['sellerContent']=$value['location'];
 	$partner_arr['imgURLs']=array(array('imgURL'=>$value['image1']),array('imgURL'=>$value['image2']));
