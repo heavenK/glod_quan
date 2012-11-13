@@ -34,12 +34,12 @@ foreach($partner as $key=>$value){
 	$count = Table::Count('likecoupon', $lcondition);
 	$partner_arr['likeCnt']=empty($count)?0:$count;
 	$partner_arr['sellerAddress']=empty($value['address'])?0:$value['address'];
-/*	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
+	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
 	$partner_arr['sellerLon']=empty($longi)?0:(int)$longi;
 	$partner_arr['sellerLat']=empty($lati)?0:(int)$lati;
 //	$partner_arr['sellerLon']=38.858822;
 //	$partner_arr['sellerLat']=121.514753;
-	$partner_arr['sellerTel']=empty($value['phone'])?0:$value['phone'];
+/*	$partner_arr['sellerTel']=empty($value['phone'])?0:$value['phone'];
 	$partner_arr['cerContent']=empty($teams[0]['summary'])?0:$teams[0]['summary'];
 	$partner_arr['cerValidityDate']=empty($teams[0]['end_time'])?0:date("Y.m.d",$teams[0]['end_time']);
 	if($teams[0]['delivery']=='voucher'){
