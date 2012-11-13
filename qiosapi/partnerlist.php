@@ -42,7 +42,7 @@ foreach($partner as $key=>$value){
 	$partner_arr['sellerTel']=empty($value['phone'])?0:$value['phone'];
 	$partner_arr['cerContent']=empty($teams[0]['summary'])?0:$teams[0]['summary'];
 	$partner_arr['cerValidityDate']=empty($teams[0]['end_time'])?0:date("Y.m.d",$teams[0]['end_time']);
-	/*if($teams[0]['delivery']=='voucher'){
+	if($teams[0]['delivery']=='voucher'){
 		$partner_arr['cerDelivery']=1;
 	}else if($teams[0]['delivery']=='express'){
 		$partner_arr['cerDelivery']=2;
@@ -52,7 +52,7 @@ foreach($partner as $key=>$value){
 	$partner_arr['sellerContent']=empty($value['location'])?0:$value['location'];
 	$image1=empty($value['image1'])?0:$value['image1'];
 	$image2=empty($value['image2'])?0:$value['image2'];
-	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2)));*/
+	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2)));
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
