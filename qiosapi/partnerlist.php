@@ -24,24 +24,24 @@ $teamss = DB::LimitQuery('team', array(
 
 foreach($partner as $key=>$value){
 	$partner_arr=array();
-	$partner_arr['sellerName']=$value['title'];
-	$partner_arr['sellerImgURL']=$value['image'];
+	$partner_arr['sellerName']=empty($value['title'])?0:$value['title'];
+	$partner_arr['sellerImgURL']=empty($value['image'])?0:$value['image'];
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
-	$partner_arr['typeName']=$type[$value['group_id']]['name'];
-	$partner_arr['aveCost']=$value['averagecost'];
+	$partner_arr['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
+	$partner_arr['aveCost']=empty($value['averagecost'])?0:$value['averagecost'];
 	$lcondition=array('team_id'=>$qid);
 	$count = Table::Count('likecoupon', $lcondition);
-	$partner_arr['likeCnt']=$count;
-	$partner_arr['sellerAddress']=$value['address'];
+	$partner_arr['likeCnt']=empty($count)?0:$count;
+	$partner_arr['sellerAddress']=empty($value['address'])?0:$value['address'];
 	list($longi,$lati) = preg_split('/[,\s]+/',$value['longlat'],-1,PREG_SPLIT_NO_EMPTY);
-//	$partner_arr['sellerLon']=$longi;
-//	$partner_arr['sellerLat']=$lati;
-	$partner_arr['sellerLon']=38.858822;
-	$partner_arr['sellerLat']=121.514753;
-	$partner_arr['sellerTel']=$value['phone'];
-	$partner_arr['cerContent']=$teams[0]['summary'];
-	$partner_arr['cerValidityDate']=date("Y.m.d",$teams[0]['end_time']);
+	$partner_arr['sellerLon']=empty($longi)?0:(int)$longi;
+	$partner_arr['sellerLat']=empty($lati)?0:(int)$lati;
+//	$partner_arr['sellerLon']=38.858822;
+//	$partner_arr['sellerLat']=121.514753;
+	$partner_arr['sellerTel']=empty($value['phone'])?0:$value['phone'];
+	$partner_arr['cerContent']=empty($teams[0]['summary'])?0:$teams[0]['summary'];
+	$partner_arr['cerValidityDate']=empty($teams[0]['end_time'])?0:date("Y.m.d",$teams[0]['end_time']);
 	if($teams[0]['delivery']=='voucher'){
 		$partner_arr['cerDelivery']=1;
 	}else if($teams[0]['delivery']=='express'){
@@ -49,8 +49,8 @@ foreach($partner as $key=>$value){
 	}else{
 		$partner_arr['cerDelivery']=0;
 	}
-	$partner_arr['sellerContent']=$value['location'];
-	$partner_arr['imgURLs']=array(array('imgURL'=>$value['image1']),array('imgURL'=>$value['image2']));
+	$partner_arr['sellerContent']=empty($value['location'])?0:$value['location'];
+	$partner_arr['imgURLs']=array(array('imgURL'=>empty($value['image1'])?0:$value['image1']),array('imgURL'=>empty($value['image2'])?0:$value['image2'])));
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
