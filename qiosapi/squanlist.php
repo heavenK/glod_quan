@@ -61,6 +61,9 @@ foreach($teams as $key=>$value){
 				$str['type']=empty($pvalue['group_id'])?0:$pvalue['group_id'];
 			}
 		}
+		$sortid=array(0=>$value['partner_id']);
+		$type = Table::Fetch('category', $sortid);
+		$str['typeName']=empty($type[$value['partner_id']]['name'])?0:$type[$value['partner_id']]['name'];
 	}
 	$lcondition=array('team_id'=>$value['id']);
 	$count = Table::Count('likecoupon', $lcondition);
