@@ -25,7 +25,7 @@ $teamss = DB::LimitQuery('team', array(
 foreach($partner as $key=>$value){
 	$partner_arr=array();
 	$partner_arr['sellerName']=empty($value['title'])?0:$value['title'];
-	$partner_arr['sellerImgURL']=empty($value['image'])?0:$value['image'];
+	$partner_arr['sellerImgURL']=empty($value['image'])?0:team_image($value['image']);
 	$sortid=array(0=>$value['group_id']);
 	$type = Table::Fetch('category', $sortid);
 	$partner_arr['typeName']=empty($type[$value['group_id']]['name'])?0:$type[$value['group_id']]['name'];
@@ -50,8 +50,8 @@ foreach($partner as $key=>$value){
 		$partner_arr['cerDelivery']=0;
 	}
 	$partner_arr['sellerContent']=empty($value['location'])?0:$value['location'];
-	$image1=empty($value['image1'])?0:$value['image1'];
-	$image2=empty($value['image2'])?0:$value['image2'];
+	$image1=empty($value['image1'])?0:team_image($value['image1']);
+	$image2=empty($value['image2'])?0:team_image($value['image2']);
 	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2));
 }
 $partner_arr['code']=2;
