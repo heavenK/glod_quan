@@ -45,7 +45,7 @@ foreach($teams as $key=>$value){
 	if($imgtype==2){
 		$str['imgURL']=empty($value['image'])?0:team_image($value['image'], true);
 	}else{
-		$str['imgURL']=empty($value['image'])?0:$value['image'];
+		$str['imgURL']=empty($value['image'])?0:team_image($value['image'],false);
 		$str['imgURL1']=empty($value['image1'])?0:$value['image1'];
 		$str['imgURL2']=empty($value['image2'])?0:$value['image2'];
 	}
