@@ -49,7 +49,7 @@ foreach($partner as $key=>$value){
 	}else{
 		$partner_arr['cerDelivery']=0;
 	}
-	$partner_arr['sellerContent']=empty($value['location'])?0:$value['location'];
+	$partner_arr['sellerContent']=empty($value['location'])?0:strip_tags($value['location']);
 	$image1=empty($value['image1'])?0:team_image($value['image1']);
 	$image2=empty($value['image2'])?0:team_image($value['image2']);
 	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2));
