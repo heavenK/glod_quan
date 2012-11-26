@@ -40,7 +40,7 @@ foreach($partner as $key=>$value){
 //	$partner_arr['sellerLon']=38.858822;
 //	$partner_arr['sellerLat']=121.514753;
 	$partner_arr['sellerTel']=empty($value['phone'])?0:$value['phone'];
-	$partner_arr['cerContent']=empty($teams[0]['summary'])?0:$teams[0]['summary'];
+	$partner_arr['cerContent']=empty($teams[0]['summary'])?0:strip_tags($teams[0]['summary']);
 	$partner_arr['cerValidityDate']=empty($teams[0]['end_time'])?0:date("Y.m.d",$teams[0]['end_time']);
 	if($teams[0]['delivery']=='voucher'){
 		$partner_arr['cerDelivery']=1;
