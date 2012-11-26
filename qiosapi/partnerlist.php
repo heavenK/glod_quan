@@ -55,5 +55,6 @@ foreach($partner as $key=>$value){
 	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2));
 }
 $partner_arr['code']=2;
+print_r($partner_arr);
 echo(json_encode($partner_arr));
 ?>
