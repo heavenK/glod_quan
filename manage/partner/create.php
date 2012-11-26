@@ -22,7 +22,9 @@ if ( $_POST ) {
 		'bank_name', 'bank_user', 'bank_no', 'create_time',
 		'location', 'other', 'homepage', 'contact', 'mobile', 'phone',
 		'password', 'address', 'open', 'display',
-		'image', 'image1', 'image2', 'longlat',
+		'image', 'image1', 'image2', 'image3', 'image4', 'image5', 'image6',
+		 'image7', 'image8', 'image9', 'image10', 'image11', 'image12', 'averagecost',
+		'longlat',
 	));
 	redirect( WEB_ROOT . '/manage/partner/index.php');
 }
