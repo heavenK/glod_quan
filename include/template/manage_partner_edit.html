@@ -80,6 +80,56 @@ window.x_init_hook_gm = function() {
 							<input type="file" size="30" name="upload_image2" id="team-create-image2" class="f-input f-hint" />
 							<!--{if $partner['image2']}--><span class="hint">${team_image($partner['image2'])}</span><!--{/if}-->
 						</div>
+						<div class="field">
+							<label>商家图片3</label>
+							<input type="file" size="30" name="upload_image3" id="team-create-image3" class="f-input f-hint" />
+							<!--{if $partner['image3']}--><span class="hint">${team_image($partner['image3'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片4</label>
+							<input type="file" size="30" name="upload_image4" id="team-create-image4" class="f-input f-hint" />
+							<!--{if $partner['image4']}--><span class="hint">${team_image($partner['image4'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片5</label>
+							<input type="file" size="30" name="upload_image5" id="team-create-image5" class="f-input f-hint" />
+							<!--{if $partner['image5']}--><span class="hint">${team_image($partner['image5'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片6</label>
+							<input type="file" size="30" name="upload_image6" id="team-create-image6" class="f-input f-hint" />
+							<!--{if $partner['image6']}--><span class="hint">${team_image($partner['image6'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片7</label>
+							<input type="file" size="30" name="upload_image7" id="team-create-image7" class="f-input f-hint" />
+							<!--{if $partner['image7']}--><span class="hint">${team_image($partner['image7'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片8</label>
+							<input type="file" size="30" name="upload_image8" id="team-create-image8" class="f-input f-hint" />
+							<!--{if $partner['image8']}--><span class="hint">${team_image($partner['image8'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片9</label>
+							<input type="file" size="30" name="upload_image9" id="team-create-image9" class="f-input f-hint" />
+							<!--{if $partner['image9']}--><span class="hint">${team_image($partner['image9'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片10</label>
+							<input type="file" size="30" name="upload_image10" id="team-create-image10" class="f-input f-hint" />
+							<!--{if $partner['image10']}--><span class="hint">${team_image($partner['image10'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片11</label>
+							<input type="file" size="30" name="upload_image11" id="team-create-image11" class="f-input f-hint" />
+							<!--{if $partner['image11']}--><span class="hint">${team_image($partner['image11'])}</span><!--{/if}-->
+						</div>
+						<div class="field">
+							<label>商家图片12</label>
+							<input type="file" size="30" name="upload_image12" id="team-create-image12" class="f-input f-hint" />
+							<!--{if $partner['image12']}--><span class="hint">${team_image($partner['image12'])}</span><!--{/if}-->
+						</div>
                         <div class="field">
                             <label>地图坐标</label>
                             <input type="text" size="30" name="longlat" style="width:300px;cursor:point;" class="f-input f-hint" id="inputlonglat" readonly value="{$partner['longlat']}" onclick="X.misc.setbaidumap('{$partner['longlat']}');" /><span class="inputtip"><a href="javascript:;" style="cursor:point;" onclick="jQuery('#inputlonglat').val('');">取地图坐标信息</a></span>
@@ -93,6 +143,10 @@ window.x_init_hook_gm = function() {
                             <label>网站地址</label>
                             <input type="text" size="30" name="homepage" id="partner-create-homepage" class="f-input f-hint" value="{$partner['homepage']}"/>
                         </div>
+						<div class="field">
+                            <label>人均消费额</label>
+                            <input type="text" size="30" name="averagecost" id="partner-create-contact" class="f-input f-hint" value="{$partner['averagecost']}"/>
+						</div>
                         <div class="field">
                             <label>联系人</label>
                             <input type="text" size="30" name="contact" id="partner-create-contact" class="f-input f-hint" value="{$partner['contact']}"/>

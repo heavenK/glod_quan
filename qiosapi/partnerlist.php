@@ -52,7 +52,17 @@ foreach($partner as $key=>$value){
 	$partner_arr['sellerContent']=empty($value['location'])?0:strip_tags($value['location']);
 	$image1=empty($value['image1'])?0:team_image($value['image1']);
 	$image2=empty($value['image2'])?0:team_image($value['image2']);
-	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2));
+	$image3=empty($value['image3'])?0:team_image($value['image3']);
+	$image4=empty($value['image4'])?0:team_image($value['image4']);
+	$image5=empty($value['image5'])?0:team_image($value['image5']);
+	$image6=empty($value['image6'])?0:team_image($value['image6']);
+	$image7=empty($value['image7'])?0:team_image($value['image7']);
+	$image8=empty($value['image8'])?0:team_image($value['image8']);
+	$image9=empty($value['image9'])?0:team_image($value['image9']);
+	$image10=empty($value['image10'])?0:team_image($value['image10']);
+	$image11=empty($value['image11'])?0:team_image($value['image11']);
+	$image12=empty($value['image12'])?0:team_image($value['image12']);
+	$partner_arr['imgURLs']=array(array('imgURL'=>$image1),array('imgURL'=>$image2),array('imgURL'=>$image3),array('imgURL'=>$image4),array('imgURL'=>$image5),array('imgURL'=>$image6),array('imgURL'=>$image7),array('imgURL'=>$image8),array('imgURL'=>$image9),array('imgURL'=>$image10),array('imgURL'=>$image11),array('imgURL'=>$image12));
 }
 $partner_arr['code']=2;
 echo(json_encode($partner_arr));
