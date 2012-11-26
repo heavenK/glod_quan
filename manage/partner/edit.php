@@ -17,16 +17,16 @@ if ( $_POST && $id==$_POST['id'] && $partner) {
 	$table->image = upload_image('upload_image', $partner['image'], 'team', true);
 	$table->image1 = upload_image('upload_image1', $partner['image1'], 'team');
 	$table->image2 = upload_image('upload_image2', $partner['image2'], 'team');
-	$table->image3 = upload_image('upload_image3', $partner['image2'], 'team');
-	$table->image4 = upload_image('upload_image4', $partner['image2'], 'team');
-	$table->image5 = upload_image('upload_image5', $partner['image2'], 'team');
-	$table->image6 = upload_image('upload_image6', $partner['image2'], 'team');
-	$table->image7 = upload_image('upload_image7', $partner['image2'], 'team');
-	$table->image8 = upload_image('upload_image8', $partner['image2'], 'team');
-	$table->image9 = upload_image('upload_image9', $partner['image2'], 'team');
-	$table->image10 = upload_image('upload_image10', $partner['image2'], 'team');
-	$table->image11 = upload_image('upload_image11', $partner['image2'], 'team');
-	$table->image12 = upload_image('upload_image12', $partner['image2'], 'team');
+	$table->image3 = upload_image('upload_image3', $partner['image3'], 'team');
+	$table->image4 = upload_image('upload_image4', $partner['image4'], 'team');
+	$table->image5 = upload_image('upload_image5', $partner['image5'], 'team');
+	$table->image6 = upload_image('upload_image6', $partner['image6'], 'team');
+	$table->image7 = upload_image('upload_image7', $partner['image7'], 'team');
+	$table->image8 = upload_image('upload_image8', $partner['image8'], 'team');
+	$table->image9 = upload_image('upload_image9', $partner['image9'], 'team');
+	$table->image10 = upload_image('upload_image10', $partner['image10'], 'team');
+	$table->image11 = upload_image('upload_image11', $partner['image11'], 'team');
+	$table->image12 = upload_image('upload_image12', $partner['image12'], 'team');
 
 	$up_array = array(
 			'username', 'title', 'bank_name', 'bank_user', 'bank_no',
