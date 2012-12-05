@@ -43,7 +43,7 @@ foreach($teams as $key=>$value){
 	$str=array();
 	$str['certificateID']=empty($value['id'])?0:$value['id'];
 	if($imgtype==2){
-		$str['imgURL']=empty($value['image'])?0:team_image($value['image'], true);
+		$str['imgURL']=empty($value['minimage'])?0:team_image($value['minimage']);
 	}else{
 		$str['imgURL']=empty($value['image'])?0:team_image($value['image']);
 		$str['imgURL1']=empty($value['image1'])?0:team_image($value['image1']);
