@@ -127,6 +127,11 @@
 						<!--{if $team['image']}--><span class="hint">${team_image($team['image'])}</span><!--{/if}-->
 					</div>
 					<div class="field">
+						<label>商品图片</label>
+						<input type="file" size="30" name="upload_minimage" id="team-create-image" class="f-input" />
+						<!--{if $team['minimage']}--><span class="hint">${team_image($team['minimage'])}</span><!--{/if}-->
+					</div>
+					<div class="field">
 						<label>商品图片1</label>
 						<input type="file" size="30" name="upload_image1" id="team-create-image1" class="f-input" />
 						<!--{if $team['image1']}--><span class="hint" id="team_image_1">${team_image($team['image1'])}&nbsp;&nbsp;<a href="javascript:;" onclick="X.team.imageremove({$team['id']}, 1);">删除</a></span><!--{/if}-->

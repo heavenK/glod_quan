@@ -41,7 +41,7 @@ else if ( is_post() ) {
 		'express', 'credit', 'farefree', 'pre_number',
 		'user_id', 'city_id', 'group_id','sub_id', 'partner_id',
 		'team_type', 'sort_order', 'farefree', 'state',
-		'condbuy','express_relate','city_ids','qimage'
+		'condbuy','express_relate','city_ids','qimage','minimage'
 		);
 	$team['user_id'] = $login_user_id;
 	$team['state'] = 'none';
@@ -55,6 +55,7 @@ else if ( is_post() ) {
 	$team['end_time'] = strtotime($team['end_time']);
 	$team['expire_time'] = strtotime($team['expire_time']);
 	$team['image'] = upload_image('upload_image',$eteam['image'],'team',true);
+	$team['minimage'] = upload_image('upload_minimage',$eteam['minimage'],'team');
 	$team['image1'] = upload_image('upload_image1',$eteam['image1'],'team');
 	$team['image2'] = upload_image('upload_image2',$eteam['image2'],'team');
 	$team['qimage'] = upload_image('quan_image',$eteam['qimage'],'team');
